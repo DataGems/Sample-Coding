@@ -1,0 +1,33 @@
+Yes, this is exactly what I'd need. "run this" ==> "get this exact result" for a number of cases.
+
+The video could be a good test case.
+
+If there was a test that checked on the locations per robot and item for the entire length of the sim and made sure it was what it was expected to be then that would be a good starting point for me.
+
+The code base does have some directories labeled "test" but they mostly contain either very basic or dummy tests for only a few parts of the functionality.
+
+There are text files in the archive that look like the path finder maps and layouts, and what I read of the code makes it seem likely that these text kinds of files are what the software in the page ingests and outputs. This is as compared to generating the video frames as in the attached video. I suspect though I do not know for certain that an intermediate representation like the text files that I see was then converted by some other software into the SIM video you've attached. I would like to know whether I am correct on that guess or not?
+
+In any case, a simulation much like what is displayed in the video can be made into a test that I can then leverage to get something usable. To do this we'd need to strip out the part of this that is beyond our scope, presumably the video rendering part and concentrate only on the generated inputs for the video renderer. Those inputs (intermediate representations) would need to be converted into specific test cases that I can run to verify that we are generating a valid simulation run (one which would render to the video you've attached). We would likely also want a test to actually render the video and either validate it programatically (comparing pixels to the existing video) or since this is the cherry-on-top kind of test just validate it visually and run it not very often.
+
+The steps here would essentially be to first try to run any part of this.
+Next to break down and make the tests and test the tests to make sure that they run and can fail.
+Next to work on the execution of the code until the tests do pass (we can recreate the video simulation).
+
+At this point we can start stabilizing things more and throwing in unit tests around sub-functionalities of the simulation so that when we modify behavior we will be able to sense the effect of such modifications on the current definitions/validations in the code base and adapt accordingly.
+
+We can also start making simulation modifications and expansions to integrate NGR functionality and features.
+
+Or we can do both.
+
+This is just one proposed course forward. It presumes that the video and simulation are something valuable and worthy of recreation in the first place.
+
+Glancing through the code, there's not so much of it and it doesn't seem particularly advanced, unlike for instance some of the pathfinder code I've seen and certainly Julian's gnarly work. The reason to work on this code rather than roll something totally new is that somebody over on this Urbx's side authorized this code and presumably was at some point happy with what it did which I don't think can yet be said of NGR projects. Meaning NGR projects might be great, but they as far as I know have not run and done something this Urbx likes and can use. The play here could be to recreate the simulation which was doing something presumably useful and expand it to be more interesting and more useful by integrating NGR functionality into the already useful (simulation) thereby iteratively and recurrently extending NGRs presence in Urbx internals and the value that NGR provides to Urbx.
+
+In the above I use a lot of qualifiers ("presumably"). We should find out if those presumptions are correct because if not, the argument falls apart.
+
+If the argument is not valid then it might make sense to instead roll entirely fresh software. However, then we essentially need to drill down and get some manner of requirements documents together, a testing plan, milestones along the way and so forth. In that case basically we are talking about just fresh new NGR software that Urbx can use. That space is really big so I'm not sure where to look there. Are we writing a new simulation? Are we writing embedded software on a robot? Are we writing a cloud service with an API? Is this an application for usage by expert users on their laptop? etc. There can be a ton of questions here so I'm hesitant to keep freebasing.
+
+In a nutshell, what is it that they are actually willing to pay us to do for them?
+
+-Dmitri

@@ -1,0 +1,3068 @@
+Loading Solomon instance with 25 selected customers...
+
+Selected Customer Details:
+ID  Ready  Due    Service  Demand  Location
+--------------------------------------------------
+1   161    171    10       10      (41,49)
+2   50     60     10       7       (35,17)
+3   116    126    10       13      (55,45)
+4   149    159    10       19      (55,20)
+5   34     44     10       26      (15,30)
+6   99     109    10       3       (25,30)
+7   81     91     10       5       (20,50)
+8   95     105    10       9       (10,43)
+9   97     107    10       16      (55,60)
+10  124    134    10       16      (30,60)
+11  67     77     10       12      (20,65)
+12  63     73     10       19      (50,35)
+13  159    169    10       23      (30,25)
+14  32     42     10       20      (15,10)
+15  61     71     10       8       (30,5)
+16  75     85     10       19      (10,20)
+17  157    167    10       2       (5,30)
+18  87     97     10       12      (20,40)
+19  76     86     10       17      (15,60)
+20  126    136    10       9       (45,65)
+21  62     72     10       11      (45,20)
+22  97     107    10       18      (45,10)
+23  68     78     10       29      (55,5)
+24  153    163    10       3       (65,35)
+25  172    182    10       6       (65,20)
+Set parameter Username
+Set parameter LicenseID to value 2495874
+Academic license - for non-commercial use only - expires 2025-03-29
+
+Solving...
+
+=== Initial LA-Neighborhood Analysis ===
+
+LA-Neighborhood Details:
+
+Customer 1:
+  Neighborhood size: 2
+  Neighbors: [13, 25]
+  Distances to neighbors:
+    -> Customer 13: 5.3
+    -> Customer 25: 7.5
+  Time window compatibility:
+    -> Customer 13: Window [159, 169]
+       Earliest possible arrival: 166.3
+       Latest possible arrival: 176.3
+    -> Customer 25: Window [172, 182]
+       Earliest possible arrival: 168.5
+       Latest possible arrival: 178.5
+
+Customer 2:
+  Neighborhood size: 10
+  Neighbors: [13, 21, 22, 15, 6, 4, 23, 12, 16, 18]
+  Distances to neighbors:
+    -> Customer 13: 1.9
+    -> Customer 21: 2.1
+    -> Customer 22: 2.4
+    -> Customer 15: 2.6
+    -> Customer 6: 3.3
+    -> Customer 4: 4.0
+    -> Customer 23: 4.7
+    -> Customer 12: 4.7
+    -> Customer 16: 5.0
+    -> Customer 18: 5.5
+  Time window compatibility:
+    -> Customer 13: Window [159, 169]
+       Earliest possible arrival: 51.9
+       Latest possible arrival: 61.9
+    -> Customer 21: Window [62, 72]
+       Earliest possible arrival: 52.1
+       Latest possible arrival: 62.1
+    -> Customer 22: Window [97, 107]
+       Earliest possible arrival: 52.4
+       Latest possible arrival: 62.4
+    -> Customer 15: Window [61, 71]
+       Earliest possible arrival: 52.6
+       Latest possible arrival: 62.6
+    -> Customer 6: Window [99, 109]
+       Earliest possible arrival: 53.3
+       Latest possible arrival: 63.3
+    -> Customer 4: Window [149, 159]
+       Earliest possible arrival: 54.0
+       Latest possible arrival: 64.0
+    -> Customer 23: Window [68, 78]
+       Earliest possible arrival: 54.7
+       Latest possible arrival: 64.7
+    -> Customer 12: Window [63, 73]
+       Earliest possible arrival: 54.7
+       Latest possible arrival: 64.7
+    -> Customer 16: Window [75, 85]
+       Earliest possible arrival: 55.0
+       Latest possible arrival: 65.0
+    -> Customer 18: Window [87, 97]
+       Earliest possible arrival: 55.5
+       Latest possible arrival: 65.5
+
+Customer 3:
+  Neighborhood size: 8
+  Neighbors: [24, 1, 20, 4, 25, 10, 13, 17]
+  Distances to neighbors:
+    -> Customer 24: 2.8
+    -> Customer 1: 2.9
+    -> Customer 20: 4.5
+    -> Customer 4: 5.0
+    -> Customer 25: 5.4
+    -> Customer 10: 5.8
+    -> Customer 13: 6.4
+    -> Customer 17: 10.4
+  Time window compatibility:
+    -> Customer 24: Window [153, 163]
+       Earliest possible arrival: 118.8
+       Latest possible arrival: 128.8
+    -> Customer 1: Window [161, 171]
+       Earliest possible arrival: 118.9
+       Latest possible arrival: 128.9
+    -> Customer 20: Window [126, 136]
+       Earliest possible arrival: 120.5
+       Latest possible arrival: 130.5
+    -> Customer 4: Window [149, 159]
+       Earliest possible arrival: 121.0
+       Latest possible arrival: 131.0
+    -> Customer 25: Window [172, 182]
+       Earliest possible arrival: 121.4
+       Latest possible arrival: 131.4
+    -> Customer 10: Window [124, 134]
+       Earliest possible arrival: 121.8
+       Latest possible arrival: 131.8
+    -> Customer 13: Window [159, 169]
+       Earliest possible arrival: 122.4
+       Latest possible arrival: 132.4
+    -> Customer 17: Window [157, 167]
+       Earliest possible arrival: 126.4
+       Latest possible arrival: 136.4
+
+Customer 4:
+  Neighborhood size: 5
+  Neighbors: [25, 24, 13, 1, 17]
+  Distances to neighbors:
+    -> Customer 25: 2.0
+    -> Customer 24: 3.6
+    -> Customer 13: 5.1
+    -> Customer 1: 6.4
+    -> Customer 17: 10.2
+  Time window compatibility:
+    -> Customer 25: Window [172, 182]
+       Earliest possible arrival: 151.0
+       Latest possible arrival: 161.0
+    -> Customer 24: Window [153, 163]
+       Earliest possible arrival: 152.6
+       Latest possible arrival: 162.6
+    -> Customer 13: Window [159, 169]
+       Earliest possible arrival: 154.1
+       Latest possible arrival: 164.1
+    -> Customer 1: Window [161, 171]
+       Earliest possible arrival: 155.4
+       Latest possible arrival: 165.4
+    -> Customer 17: Window [157, 167]
+       Earliest possible arrival: 159.2
+       Latest possible arrival: 169.2
+
+Customer 5:
+  Neighborhood size: 10
+  Neighbors: [6, 17, 16, 18, 8, 13, 14, 7, 2, 15]
+  Distances to neighbors:
+    -> Customer 6: 2.0
+    -> Customer 17: 2.0
+    -> Customer 16: 2.2
+    -> Customer 18: 2.2
+    -> Customer 8: 2.8
+    -> Customer 13: 3.2
+    -> Customer 14: 4.0
+    -> Customer 7: 4.1
+    -> Customer 2: 4.8
+    -> Customer 15: 5.8
+  Time window compatibility:
+    -> Customer 6: Window [99, 109]
+       Earliest possible arrival: 36.0
+       Latest possible arrival: 46.0
+    -> Customer 17: Window [157, 167]
+       Earliest possible arrival: 36.0
+       Latest possible arrival: 46.0
+    -> Customer 16: Window [75, 85]
+       Earliest possible arrival: 36.2
+       Latest possible arrival: 46.2
+    -> Customer 18: Window [87, 97]
+       Earliest possible arrival: 36.2
+       Latest possible arrival: 46.2
+    -> Customer 8: Window [95, 105]
+       Earliest possible arrival: 36.8
+       Latest possible arrival: 46.8
+    -> Customer 13: Window [159, 169]
+       Earliest possible arrival: 37.2
+       Latest possible arrival: 47.2
+    -> Customer 14: Window [32, 42]
+       Earliest possible arrival: 38.0
+       Latest possible arrival: 48.0
+    -> Customer 7: Window [81, 91]
+       Earliest possible arrival: 38.1
+       Latest possible arrival: 48.1
+    -> Customer 2: Window [50, 60]
+       Earliest possible arrival: 38.8
+       Latest possible arrival: 48.8
+    -> Customer 15: Window [61, 71]
+       Earliest possible arrival: 39.8
+       Latest possible arrival: 49.8
+
+Customer 6:
+  Neighborhood size: 10
+  Neighbors: [13, 8, 17, 1, 22, 10, 4, 3, 20, 24]
+  Distances to neighbors:
+    -> Customer 13: 1.4
+    -> Customer 8: 4.0
+    -> Customer 17: 4.0
+    -> Customer 1: 5.0
+    -> Customer 22: 5.6
+    -> Customer 10: 6.1
+    -> Customer 4: 6.3
+    -> Customer 3: 6.7
+    -> Customer 20: 8.1
+    -> Customer 24: 8.1
+  Time window compatibility:
+    -> Customer 13: Window [159, 169]
+       Earliest possible arrival: 100.4
+       Latest possible arrival: 110.4
+    -> Customer 8: Window [95, 105]
+       Earliest possible arrival: 103.0
+       Latest possible arrival: 113.0
+    -> Customer 17: Window [157, 167]
+       Earliest possible arrival: 103.0
+       Latest possible arrival: 113.0
+    -> Customer 1: Window [161, 171]
+       Earliest possible arrival: 104.0
+       Latest possible arrival: 114.0
+    -> Customer 22: Window [97, 107]
+       Earliest possible arrival: 104.6
+       Latest possible arrival: 114.6
+    -> Customer 10: Window [124, 134]
+       Earliest possible arrival: 105.1
+       Latest possible arrival: 115.1
+    -> Customer 4: Window [149, 159]
+       Earliest possible arrival: 105.3
+       Latest possible arrival: 115.3
+    -> Customer 3: Window [116, 126]
+       Earliest possible arrival: 105.7
+       Latest possible arrival: 115.7
+    -> Customer 20: Window [126, 136]
+       Earliest possible arrival: 107.1
+       Latest possible arrival: 117.1
+    -> Customer 24: Window [153, 163]
+       Earliest possible arrival: 107.1
+       Latest possible arrival: 117.1
+
+Customer 7:
+  Neighborhood size: 10
+  Neighbors: [18, 19, 8, 10, 6, 1, 17, 13, 20, 3]
+  Distances to neighbors:
+    -> Customer 18: 2.0
+    -> Customer 19: 2.2
+    -> Customer 8: 2.4
+    -> Customer 10: 2.8
+    -> Customer 6: 4.1
+    -> Customer 1: 4.2
+    -> Customer 17: 5.0
+    -> Customer 13: 5.4
+    -> Customer 20: 5.8
+    -> Customer 3: 7.1
+  Time window compatibility:
+    -> Customer 18: Window [87, 97]
+       Earliest possible arrival: 83.0
+       Latest possible arrival: 93.0
+    -> Customer 19: Window [76, 86]
+       Earliest possible arrival: 83.2
+       Latest possible arrival: 93.2
+    -> Customer 8: Window [95, 105]
+       Earliest possible arrival: 83.4
+       Latest possible arrival: 93.4
+    -> Customer 10: Window [124, 134]
+       Earliest possible arrival: 83.8
+       Latest possible arrival: 93.8
+    -> Customer 6: Window [99, 109]
+       Earliest possible arrival: 85.1
+       Latest possible arrival: 95.1
+    -> Customer 1: Window [161, 171]
+       Earliest possible arrival: 85.2
+       Latest possible arrival: 95.2
+    -> Customer 17: Window [157, 167]
+       Earliest possible arrival: 86.0
+       Latest possible arrival: 96.0
+    -> Customer 13: Window [159, 169]
+       Earliest possible arrival: 86.4
+       Latest possible arrival: 96.4
+    -> Customer 20: Window [126, 136]
+       Earliest possible arrival: 86.8
+       Latest possible arrival: 96.8
+    -> Customer 3: Window [116, 126]
+       Earliest possible arrival: 88.1
+       Latest possible arrival: 98.1
+
+Customer 8:
+  Neighborhood size: 10
+  Neighbors: [17, 6, 10, 13, 1, 20, 3, 9, 22, 4]
+  Distances to neighbors:
+    -> Customer 17: 2.8
+    -> Customer 6: 4.0
+    -> Customer 10: 5.2
+    -> Customer 13: 5.4
+    -> Customer 1: 6.3
+    -> Customer 20: 8.3
+    -> Customer 3: 9.0
+    -> Customer 9: 9.6
+    -> Customer 22: 9.6
+    -> Customer 4: 10.1
+  Time window compatibility:
+    -> Customer 17: Window [157, 167]
+       Earliest possible arrival: 97.8
+       Latest possible arrival: 107.8
+    -> Customer 6: Window [99, 109]
+       Earliest possible arrival: 99.0
+       Latest possible arrival: 109.0
+    -> Customer 10: Window [124, 134]
+       Earliest possible arrival: 100.2
+       Latest possible arrival: 110.2
+    -> Customer 13: Window [159, 169]
+       Earliest possible arrival: 100.4
+       Latest possible arrival: 110.4
+    -> Customer 1: Window [161, 171]
+       Earliest possible arrival: 101.3
+       Latest possible arrival: 111.3
+    -> Customer 20: Window [126, 136]
+       Earliest possible arrival: 103.3
+       Latest possible arrival: 113.3
+    -> Customer 3: Window [116, 126]
+       Earliest possible arrival: 104.0
+       Latest possible arrival: 114.0
+    -> Customer 9: Window [97, 107]
+       Earliest possible arrival: 104.6
+       Latest possible arrival: 114.6
+    -> Customer 22: Window [97, 107]
+       Earliest possible arrival: 104.6
+       Latest possible arrival: 114.6
+    -> Customer 4: Window [149, 159]
+       Earliest possible arrival: 105.1
+       Latest possible arrival: 115.1
+
+Customer 9:
+  Neighborhood size: 10
+  Neighbors: [20, 3, 1, 10, 24, 4, 25, 6, 13, 17]
+  Distances to neighbors:
+    -> Customer 20: 2.2
+    -> Customer 3: 3.0
+    -> Customer 1: 3.6
+    -> Customer 10: 5.0
+    -> Customer 24: 5.4
+    -> Customer 4: 8.0
+    -> Customer 25: 8.2
+    -> Customer 6: 8.5
+    -> Customer 13: 8.6
+    -> Customer 17: 11.7
+  Time window compatibility:
+    -> Customer 20: Window [126, 136]
+       Earliest possible arrival: 99.2
+       Latest possible arrival: 109.2
+    -> Customer 3: Window [116, 126]
+       Earliest possible arrival: 100.0
+       Latest possible arrival: 110.0
+    -> Customer 1: Window [161, 171]
+       Earliest possible arrival: 100.6
+       Latest possible arrival: 110.6
+    -> Customer 10: Window [124, 134]
+       Earliest possible arrival: 102.0
+       Latest possible arrival: 112.0
+    -> Customer 24: Window [153, 163]
+       Earliest possible arrival: 102.4
+       Latest possible arrival: 112.4
+    -> Customer 4: Window [149, 159]
+       Earliest possible arrival: 105.0
+       Latest possible arrival: 115.0
+    -> Customer 25: Window [172, 182]
+       Earliest possible arrival: 105.2
+       Latest possible arrival: 115.2
+    -> Customer 6: Window [99, 109]
+       Earliest possible arrival: 105.5
+       Latest possible arrival: 115.5
+    -> Customer 13: Window [159, 169]
+       Earliest possible arrival: 105.6
+       Latest possible arrival: 115.6
+    -> Customer 17: Window [157, 167]
+       Earliest possible arrival: 108.7
+       Latest possible arrival: 118.7
+
+Customer 10:
+  Neighborhood size: 7
+  Neighbors: [1, 20, 13, 17, 24, 4, 25]
+  Distances to neighbors:
+    -> Customer 1: 3.1
+    -> Customer 20: 3.2
+    -> Customer 13: 7.0
+    -> Customer 17: 7.8
+    -> Customer 24: 8.6
+    -> Customer 4: 9.4
+    -> Customer 25: 10.6
+  Time window compatibility:
+    -> Customer 1: Window [161, 171]
+       Earliest possible arrival: 127.1
+       Latest possible arrival: 137.1
+    -> Customer 20: Window [126, 136]
+       Earliest possible arrival: 127.2
+       Latest possible arrival: 137.2
+    -> Customer 13: Window [159, 169]
+       Earliest possible arrival: 131.0
+       Latest possible arrival: 141.0
+    -> Customer 17: Window [157, 167]
+       Earliest possible arrival: 131.8
+       Latest possible arrival: 141.8
+    -> Customer 24: Window [153, 163]
+       Earliest possible arrival: 132.6
+       Latest possible arrival: 142.6
+    -> Customer 4: Window [149, 159]
+       Earliest possible arrival: 133.4
+       Latest possible arrival: 143.4
+    -> Customer 25: Window [172, 182]
+       Earliest possible arrival: 134.6
+       Latest possible arrival: 144.6
+
+Customer 11:
+  Neighborhood size: 10
+  Neighbors: [19, 10, 7, 8, 18, 20, 1, 6, 9, 17]
+  Distances to neighbors:
+    -> Customer 19: 1.4
+    -> Customer 10: 2.2
+    -> Customer 7: 3.0
+    -> Customer 8: 4.8
+    -> Customer 18: 5.0
+    -> Customer 20: 5.0
+    -> Customer 1: 5.3
+    -> Customer 6: 7.1
+    -> Customer 9: 7.1
+    -> Customer 17: 7.6
+  Time window compatibility:
+    -> Customer 19: Window [76, 86]
+       Earliest possible arrival: 68.4
+       Latest possible arrival: 78.4
+    -> Customer 10: Window [124, 134]
+       Earliest possible arrival: 69.2
+       Latest possible arrival: 79.2
+    -> Customer 7: Window [81, 91]
+       Earliest possible arrival: 70.0
+       Latest possible arrival: 80.0
+    -> Customer 8: Window [95, 105]
+       Earliest possible arrival: 71.8
+       Latest possible arrival: 81.8
+    -> Customer 18: Window [87, 97]
+       Earliest possible arrival: 72.0
+       Latest possible arrival: 82.0
+    -> Customer 20: Window [126, 136]
+       Earliest possible arrival: 72.0
+       Latest possible arrival: 82.0
+    -> Customer 1: Window [161, 171]
+       Earliest possible arrival: 72.3
+       Latest possible arrival: 82.3
+    -> Customer 6: Window [99, 109]
+       Earliest possible arrival: 74.1
+       Latest possible arrival: 84.1
+    -> Customer 9: Window [97, 107]
+       Earliest possible arrival: 74.1
+       Latest possible arrival: 84.1
+    -> Customer 17: Window [157, 167]
+       Earliest possible arrival: 74.6
+       Latest possible arrival: 84.6
+
+Customer 12:
+  Neighborhood size: 10
+  Neighbors: [3, 24, 4, 21, 1, 25, 13, 6, 9, 22]
+  Distances to neighbors:
+    -> Customer 3: 2.2
+    -> Customer 24: 3.0
+    -> Customer 4: 3.2
+    -> Customer 21: 3.2
+    -> Customer 1: 3.3
+    -> Customer 25: 4.2
+    -> Customer 13: 4.5
+    -> Customer 6: 5.1
+    -> Customer 9: 5.1
+    -> Customer 22: 5.1
+  Time window compatibility:
+    -> Customer 3: Window [116, 126]
+       Earliest possible arrival: 65.2
+       Latest possible arrival: 75.2
+    -> Customer 24: Window [153, 163]
+       Earliest possible arrival: 66.0
+       Latest possible arrival: 76.0
+    -> Customer 4: Window [149, 159]
+       Earliest possible arrival: 66.2
+       Latest possible arrival: 76.2
+    -> Customer 21: Window [62, 72]
+       Earliest possible arrival: 66.2
+       Latest possible arrival: 76.2
+    -> Customer 1: Window [161, 171]
+       Earliest possible arrival: 66.3
+       Latest possible arrival: 76.3
+    -> Customer 25: Window [172, 182]
+       Earliest possible arrival: 67.2
+       Latest possible arrival: 77.2
+    -> Customer 13: Window [159, 169]
+       Earliest possible arrival: 67.5
+       Latest possible arrival: 77.5
+    -> Customer 6: Window [99, 109]
+       Earliest possible arrival: 68.1
+       Latest possible arrival: 78.1
+    -> Customer 9: Window [97, 107]
+       Earliest possible arrival: 68.1
+       Latest possible arrival: 78.1
+    -> Customer 22: Window [97, 107]
+       Earliest possible arrival: 68.1
+       Latest possible arrival: 78.1
+
+Customer 13:
+  Neighborhood size: 3
+  Neighbors: [17, 1, 25]
+  Distances to neighbors:
+    -> Customer 17: 5.1
+    -> Customer 1: 5.3
+    -> Customer 25: 7.1
+  Time window compatibility:
+    -> Customer 17: Window [157, 167]
+       Earliest possible arrival: 164.1
+       Latest possible arrival: 174.1
+    -> Customer 1: Window [161, 171]
+       Earliest possible arrival: 164.3
+       Latest possible arrival: 174.3
+    -> Customer 25: Window [172, 182]
+       Earliest possible arrival: 166.1
+       Latest possible arrival: 176.1
+
+Customer 14:
+  Neighborhood size: 10
+  Neighbors: [16, 15, 5, 2, 13, 6, 17, 22, 18, 21]
+  Distances to neighbors:
+    -> Customer 16: 2.2
+    -> Customer 15: 3.2
+    -> Customer 5: 4.0
+    -> Customer 2: 4.2
+    -> Customer 13: 4.2
+    -> Customer 6: 4.5
+    -> Customer 17: 4.5
+    -> Customer 22: 6.0
+    -> Customer 18: 6.1
+    -> Customer 21: 6.3
+  Time window compatibility:
+    -> Customer 16: Window [75, 85]
+       Earliest possible arrival: 34.2
+       Latest possible arrival: 44.2
+    -> Customer 15: Window [61, 71]
+       Earliest possible arrival: 35.2
+       Latest possible arrival: 45.2
+    -> Customer 5: Window [34, 44]
+       Earliest possible arrival: 36.0
+       Latest possible arrival: 46.0
+    -> Customer 2: Window [50, 60]
+       Earliest possible arrival: 36.2
+       Latest possible arrival: 46.2
+    -> Customer 13: Window [159, 169]
+       Earliest possible arrival: 36.2
+       Latest possible arrival: 46.2
+    -> Customer 6: Window [99, 109]
+       Earliest possible arrival: 36.5
+       Latest possible arrival: 46.5
+    -> Customer 17: Window [157, 167]
+       Earliest possible arrival: 36.5
+       Latest possible arrival: 46.5
+    -> Customer 22: Window [97, 107]
+       Earliest possible arrival: 38.0
+       Latest possible arrival: 48.0
+    -> Customer 18: Window [87, 97]
+       Earliest possible arrival: 38.1
+       Latest possible arrival: 48.1
+    -> Customer 21: Window [62, 72]
+       Earliest possible arrival: 38.3
+       Latest possible arrival: 48.3
+
+Customer 15:
+  Neighborhood size: 10
+  Neighbors: [22, 13, 21, 16, 23, 6, 4, 17, 12, 18]
+  Distances to neighbors:
+    -> Customer 22: 3.2
+    -> Customer 13: 4.0
+    -> Customer 21: 4.2
+    -> Customer 16: 5.0
+    -> Customer 23: 5.0
+    -> Customer 6: 5.1
+    -> Customer 4: 5.8
+    -> Customer 17: 7.1
+    -> Customer 12: 7.2
+    -> Customer 18: 7.3
+  Time window compatibility:
+    -> Customer 22: Window [97, 107]
+       Earliest possible arrival: 64.2
+       Latest possible arrival: 74.2
+    -> Customer 13: Window [159, 169]
+       Earliest possible arrival: 65.0
+       Latest possible arrival: 75.0
+    -> Customer 21: Window [62, 72]
+       Earliest possible arrival: 65.2
+       Latest possible arrival: 75.2
+    -> Customer 16: Window [75, 85]
+       Earliest possible arrival: 66.0
+       Latest possible arrival: 76.0
+    -> Customer 23: Window [68, 78]
+       Earliest possible arrival: 66.0
+       Latest possible arrival: 76.0
+    -> Customer 6: Window [99, 109]
+       Earliest possible arrival: 66.1
+       Latest possible arrival: 76.1
+    -> Customer 4: Window [149, 159]
+       Earliest possible arrival: 66.8
+       Latest possible arrival: 76.8
+    -> Customer 17: Window [157, 167]
+       Earliest possible arrival: 68.1
+       Latest possible arrival: 78.1
+    -> Customer 12: Window [63, 73]
+       Earliest possible arrival: 68.2
+       Latest possible arrival: 78.2
+    -> Customer 18: Window [87, 97]
+       Earliest possible arrival: 68.3
+       Latest possible arrival: 78.3
+
+Customer 16:
+  Neighborhood size: 10
+  Neighbors: [17, 6, 13, 18, 8, 7, 22, 19, 1, 10]
+  Distances to neighbors:
+    -> Customer 17: 2.2
+    -> Customer 6: 3.6
+    -> Customer 13: 4.1
+    -> Customer 18: 4.5
+    -> Customer 8: 4.6
+    -> Customer 7: 6.3
+    -> Customer 22: 7.3
+    -> Customer 19: 8.1
+    -> Customer 1: 8.5
+    -> Customer 10: 8.9
+  Time window compatibility:
+    -> Customer 17: Window [157, 167]
+       Earliest possible arrival: 77.2
+       Latest possible arrival: 87.2
+    -> Customer 6: Window [99, 109]
+       Earliest possible arrival: 78.6
+       Latest possible arrival: 88.6
+    -> Customer 13: Window [159, 169]
+       Earliest possible arrival: 79.1
+       Latest possible arrival: 89.1
+    -> Customer 18: Window [87, 97]
+       Earliest possible arrival: 79.5
+       Latest possible arrival: 89.5
+    -> Customer 8: Window [95, 105]
+       Earliest possible arrival: 79.6
+       Latest possible arrival: 89.6
+    -> Customer 7: Window [81, 91]
+       Earliest possible arrival: 81.3
+       Latest possible arrival: 91.3
+    -> Customer 22: Window [97, 107]
+       Earliest possible arrival: 82.3
+       Latest possible arrival: 92.3
+    -> Customer 19: Window [76, 86]
+       Earliest possible arrival: 83.1
+       Latest possible arrival: 93.1
+    -> Customer 1: Window [161, 171]
+       Earliest possible arrival: 83.5
+       Latest possible arrival: 93.5
+    -> Customer 10: Window [124, 134]
+       Earliest possible arrival: 83.9
+       Latest possible arrival: 93.9
+
+Customer 17:
+  Neighborhood size: 3
+  Neighbors: [13, 1, 25]
+  Distances to neighbors:
+    -> Customer 13: 5.1
+    -> Customer 1: 8.1
+    -> Customer 25: 12.2
+  Time window compatibility:
+    -> Customer 13: Window [159, 169]
+       Earliest possible arrival: 162.1
+       Latest possible arrival: 172.1
+    -> Customer 1: Window [161, 171]
+       Earliest possible arrival: 165.1
+       Latest possible arrival: 175.1
+    -> Customer 25: Window [172, 182]
+       Earliest possible arrival: 169.2
+       Latest possible arrival: 179.2
+
+Customer 18:
+  Neighborhood size: 10
+  Neighbors: [7, 8, 6, 13, 17, 10, 1, 3, 20, 22]
+  Distances to neighbors:
+    -> Customer 7: 2.0
+    -> Customer 8: 2.1
+    -> Customer 6: 2.2
+    -> Customer 13: 3.6
+    -> Customer 17: 3.6
+    -> Customer 10: 4.5
+    -> Customer 1: 4.6
+    -> Customer 3: 7.1
+    -> Customer 20: 7.1
+    -> Customer 22: 7.8
+  Time window compatibility:
+    -> Customer 7: Window [81, 91]
+       Earliest possible arrival: 89.0
+       Latest possible arrival: 99.0
+    -> Customer 8: Window [95, 105]
+       Earliest possible arrival: 89.1
+       Latest possible arrival: 99.1
+    -> Customer 6: Window [99, 109]
+       Earliest possible arrival: 89.2
+       Latest possible arrival: 99.2
+    -> Customer 13: Window [159, 169]
+       Earliest possible arrival: 90.6
+       Latest possible arrival: 100.6
+    -> Customer 17: Window [157, 167]
+       Earliest possible arrival: 90.6
+       Latest possible arrival: 100.6
+    -> Customer 10: Window [124, 134]
+       Earliest possible arrival: 91.5
+       Latest possible arrival: 101.5
+    -> Customer 1: Window [161, 171]
+       Earliest possible arrival: 91.6
+       Latest possible arrival: 101.6
+    -> Customer 3: Window [116, 126]
+       Earliest possible arrival: 94.1
+       Latest possible arrival: 104.1
+    -> Customer 20: Window [126, 136]
+       Earliest possible arrival: 94.1
+       Latest possible arrival: 104.1
+    -> Customer 22: Window [97, 107]
+       Earliest possible arrival: 94.8
+       Latest possible arrival: 104.8
+
+Customer 19:
+  Neighborhood size: 10
+  Neighbors: [7, 10, 8, 18, 1, 20, 6, 17, 13, 9]
+  Distances to neighbors:
+    -> Customer 7: 2.2
+    -> Customer 10: 3.0
+    -> Customer 8: 3.5
+    -> Customer 18: 4.1
+    -> Customer 1: 5.6
+    -> Customer 20: 6.1
+    -> Customer 6: 6.3
+    -> Customer 17: 6.3
+    -> Customer 13: 7.6
+    -> Customer 9: 8.0
+  Time window compatibility:
+    -> Customer 7: Window [81, 91]
+       Earliest possible arrival: 78.2
+       Latest possible arrival: 88.2
+    -> Customer 10: Window [124, 134]
+       Earliest possible arrival: 79.0
+       Latest possible arrival: 89.0
+    -> Customer 8: Window [95, 105]
+       Earliest possible arrival: 79.5
+       Latest possible arrival: 89.5
+    -> Customer 18: Window [87, 97]
+       Earliest possible arrival: 80.1
+       Latest possible arrival: 90.1
+    -> Customer 1: Window [161, 171]
+       Earliest possible arrival: 81.6
+       Latest possible arrival: 91.6
+    -> Customer 20: Window [126, 136]
+       Earliest possible arrival: 82.1
+       Latest possible arrival: 92.1
+    -> Customer 6: Window [99, 109]
+       Earliest possible arrival: 82.3
+       Latest possible arrival: 92.3
+    -> Customer 17: Window [157, 167]
+       Earliest possible arrival: 82.3
+       Latest possible arrival: 92.3
+    -> Customer 13: Window [159, 169]
+       Earliest possible arrival: 83.6
+       Latest possible arrival: 93.6
+    -> Customer 9: Window [97, 107]
+       Earliest possible arrival: 84.0
+       Latest possible arrival: 94.0
+
+Customer 20:
+  Neighborhood size: 7
+  Neighbors: [10, 1, 24, 13, 4, 25, 17]
+  Distances to neighbors:
+    -> Customer 10: 3.2
+    -> Customer 1: 3.3
+    -> Customer 24: 7.2
+    -> Customer 13: 8.5
+    -> Customer 4: 9.2
+    -> Customer 25: 9.8
+    -> Customer 17: 10.6
+  Time window compatibility:
+    -> Customer 10: Window [124, 134]
+       Earliest possible arrival: 129.2
+       Latest possible arrival: 139.2
+    -> Customer 1: Window [161, 171]
+       Earliest possible arrival: 129.3
+       Latest possible arrival: 139.3
+    -> Customer 24: Window [153, 163]
+       Earliest possible arrival: 133.2
+       Latest possible arrival: 143.2
+    -> Customer 13: Window [159, 169]
+       Earliest possible arrival: 134.5
+       Latest possible arrival: 144.5
+    -> Customer 4: Window [149, 159]
+       Earliest possible arrival: 135.2
+       Latest possible arrival: 145.2
+    -> Customer 25: Window [172, 182]
+       Earliest possible arrival: 135.8
+       Latest possible arrival: 145.8
+    -> Customer 17: Window [157, 167]
+       Earliest possible arrival: 136.6
+       Latest possible arrival: 146.6
+
+Customer 21:
+  Neighborhood size: 10
+  Neighbors: [4, 22, 12, 13, 23, 25, 15, 6, 24, 3]
+  Distances to neighbors:
+    -> Customer 4: 2.0
+    -> Customer 22: 2.0
+    -> Customer 12: 3.2
+    -> Customer 13: 3.2
+    -> Customer 23: 3.6
+    -> Customer 25: 4.0
+    -> Customer 15: 4.2
+    -> Customer 6: 4.5
+    -> Customer 24: 5.0
+    -> Customer 3: 5.4
+  Time window compatibility:
+    -> Customer 4: Window [149, 159]
+       Earliest possible arrival: 64.0
+       Latest possible arrival: 74.0
+    -> Customer 22: Window [97, 107]
+       Earliest possible arrival: 64.0
+       Latest possible arrival: 74.0
+    -> Customer 12: Window [63, 73]
+       Earliest possible arrival: 65.2
+       Latest possible arrival: 75.2
+    -> Customer 13: Window [159, 169]
+       Earliest possible arrival: 65.2
+       Latest possible arrival: 75.2
+    -> Customer 23: Window [68, 78]
+       Earliest possible arrival: 65.6
+       Latest possible arrival: 75.6
+    -> Customer 25: Window [172, 182]
+       Earliest possible arrival: 66.0
+       Latest possible arrival: 76.0
+    -> Customer 15: Window [61, 71]
+       Earliest possible arrival: 66.2
+       Latest possible arrival: 76.2
+    -> Customer 6: Window [99, 109]
+       Earliest possible arrival: 66.5
+       Latest possible arrival: 76.5
+    -> Customer 24: Window [153, 163]
+       Earliest possible arrival: 67.0
+       Latest possible arrival: 77.0
+    -> Customer 3: Window [116, 126]
+       Earliest possible arrival: 67.4
+       Latest possible arrival: 77.4
+
+Customer 22:
+  Neighborhood size: 10
+  Neighbors: [4, 13, 25, 6, 24, 3, 1, 17, 10, 20]
+  Distances to neighbors:
+    -> Customer 4: 2.8
+    -> Customer 13: 4.2
+    -> Customer 25: 4.5
+    -> Customer 6: 5.6
+    -> Customer 24: 6.4
+    -> Customer 3: 7.3
+    -> Customer 1: 7.8
+    -> Customer 17: 8.9
+    -> Customer 10: 10.4
+    -> Customer 20: 11.0
+  Time window compatibility:
+    -> Customer 4: Window [149, 159]
+       Earliest possible arrival: 99.8
+       Latest possible arrival: 109.8
+    -> Customer 13: Window [159, 169]
+       Earliest possible arrival: 101.2
+       Latest possible arrival: 111.2
+    -> Customer 25: Window [172, 182]
+       Earliest possible arrival: 101.5
+       Latest possible arrival: 111.5
+    -> Customer 6: Window [99, 109]
+       Earliest possible arrival: 102.6
+       Latest possible arrival: 112.6
+    -> Customer 24: Window [153, 163]
+       Earliest possible arrival: 103.4
+       Latest possible arrival: 113.4
+    -> Customer 3: Window [116, 126]
+       Earliest possible arrival: 104.3
+       Latest possible arrival: 114.3
+    -> Customer 1: Window [161, 171]
+       Earliest possible arrival: 104.8
+       Latest possible arrival: 114.8
+    -> Customer 17: Window [157, 167]
+       Earliest possible arrival: 105.9
+       Latest possible arrival: 115.9
+    -> Customer 10: Window [124, 134]
+       Earliest possible arrival: 107.4
+       Latest possible arrival: 117.4
+    -> Customer 20: Window [126, 136]
+       Earliest possible arrival: 108.0
+       Latest possible arrival: 118.0
+
+Customer 23:
+  Neighborhood size: 10
+  Neighbors: [22, 4, 21, 25, 24, 13, 6, 3, 1, 16]
+  Distances to neighbors:
+    -> Customer 22: 2.2
+    -> Customer 4: 3.0
+    -> Customer 21: 3.6
+    -> Customer 25: 3.6
+    -> Customer 24: 6.3
+    -> Customer 13: 6.4
+    -> Customer 6: 7.8
+    -> Customer 3: 8.0
+    -> Customer 1: 9.2
+    -> Customer 16: 9.5
+  Time window compatibility:
+    -> Customer 22: Window [97, 107]
+       Earliest possible arrival: 70.2
+       Latest possible arrival: 80.2
+    -> Customer 4: Window [149, 159]
+       Earliest possible arrival: 71.0
+       Latest possible arrival: 81.0
+    -> Customer 21: Window [62, 72]
+       Earliest possible arrival: 71.6
+       Latest possible arrival: 81.6
+    -> Customer 25: Window [172, 182]
+       Earliest possible arrival: 71.6
+       Latest possible arrival: 81.6
+    -> Customer 24: Window [153, 163]
+       Earliest possible arrival: 74.3
+       Latest possible arrival: 84.3
+    -> Customer 13: Window [159, 169]
+       Earliest possible arrival: 74.4
+       Latest possible arrival: 84.4
+    -> Customer 6: Window [99, 109]
+       Earliest possible arrival: 75.8
+       Latest possible arrival: 85.8
+    -> Customer 3: Window [116, 126]
+       Earliest possible arrival: 76.0
+       Latest possible arrival: 86.0
+    -> Customer 1: Window [161, 171]
+       Earliest possible arrival: 77.2
+       Latest possible arrival: 87.2
+    -> Customer 16: Window [75, 85]
+       Earliest possible arrival: 77.5
+       Latest possible arrival: 87.5
+
+Customer 24:
+  Neighborhood size: 5
+  Neighbors: [25, 4, 1, 13, 17]
+  Distances to neighbors:
+    -> Customer 25: 3.0
+    -> Customer 4: 3.6
+    -> Customer 1: 5.5
+    -> Customer 13: 7.3
+    -> Customer 17: 12.0
+  Time window compatibility:
+    -> Customer 25: Window [172, 182]
+       Earliest possible arrival: 156.0
+       Latest possible arrival: 166.0
+    -> Customer 4: Window [149, 159]
+       Earliest possible arrival: 156.6
+       Latest possible arrival: 166.6
+    -> Customer 1: Window [161, 171]
+       Earliest possible arrival: 158.5
+       Latest possible arrival: 168.5
+    -> Customer 13: Window [159, 169]
+       Earliest possible arrival: 160.3
+       Latest possible arrival: 170.3
+    -> Customer 17: Window [157, 167]
+       Earliest possible arrival: 165.0
+       Latest possible arrival: 175.0
+
+Customer 25:
+  Neighborhood size: 0
+  Neighbors: []
+  Distances to neighbors:
+  Time window compatibility:
+Set parameter TimeLimit to value 300
+Set parameter MIPGap to value 0.01
+Set parameter Threads to value 4
+
+=== Iteration 1 ===
+Gurobi Optimizer version 11.0.0 build v11.0.0rc2 (mac64[rosetta2] - Darwin 24.1.0 24B91)
+
+CPU model: Apple M3
+Thread count: 8 physical cores, 8 logical processors, using up to 4 threads
+
+Optimize a model with 134306 rows, 62838 columns and 412779 nonzeros
+Model fingerprint: 0x60068e4e
+Variable types: 61447 continuous, 1391 integer (1391 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 2e+02]
+  Objective range  [7e+00, 7e+01]
+  Bounds range     [1e+00, 2e+02]
+  RHS range        [1e-02, 4e+02]
+Presolve removed 132822 rows and 61143 columns
+Presolve time: 0.04s
+Presolved: 1484 rows, 1695 columns, 8308 nonzeros
+Variable types: 1587 continuous, 108 integer (108 binary)
+Found heuristic solution: objective 1244.6000000
+Found heuristic solution: objective 1196.1000000
+Found heuristic solution: objective 1193.7000000
+
+Root relaxation: objective 7.382921e+02, 220 iterations, 0.00 seconds (0.00 work units)
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0  738.29214    0   12 1193.70000  738.29214  38.2%     -    0s
+H    0     0                     824.7000000  738.29214  10.5%     -    0s
+H    0     0                     792.2000000  738.29214  6.80%     -    0s
+H    0     0                     782.5000000  738.29214  5.65%     -    0s
+H    0     0                     779.2000000  738.29214  5.25%     -    0s
+     0     0  752.29683    0   15  779.20000  752.29683  3.45%     -    0s
+     0     0  752.29683    0   15  779.20000  752.29683  3.45%     -    0s
+H    0     0                     773.3000000  755.59683  2.29%     -    0s
+H    0     0                     772.6000000  755.59683  2.20%     -    0s
+H    0     0                     760.1000000  755.59683  0.59%     -    0s
+H    0     0                     756.8000000  755.59683  0.16%     -    0s
+
+Cutting planes:
+  Gomory: 1
+  Cover: 5
+  Implied bound: 9
+  MIR: 11
+  Flow cover: 5
+
+Explored 1 nodes (275 simplex iterations) in 0.20 seconds (0.16 work units)
+Thread count was 4 (of 8 available processors)
+
+Solution count 10: 756.8 760.1 772.6 ... 1196.1
+
+Optimal solution found (tolerance 1.00e-02)
+Best objective 7.568000000000e+02, best bound 7.568000000000e+02, gap 0.0000%
+
+Iteration Objective: 756.8000000000001
+Solution improved
+
+--- Getting LP Relaxation Information ---
+Gurobi Optimizer version 11.0.0 build v11.0.0rc2 (mac64[rosetta2] - Darwin 24.1.0 24B91)
+
+CPU model: Apple M3
+Thread count: 8 physical cores, 8 logical processors, using up to 4 threads
+
+Optimize a model with 134306 rows, 62838 columns and 412779 nonzeros
+Model fingerprint: 0xb656c89b
+Coefficient statistics:
+  Matrix range     [1e+00, 2e+02]
+  Objective range  [7e+00, 7e+01]
+  Bounds range     [1e+00, 2e+02]
+  RHS range        [1e-02, 4e+02]
+Presolve removed 132239 rows and 60636 columns
+Presolve time: 0.04s
+Presolved: 2067 rows, 2364 columns, 13622 nonzeros
+
+Concurrent LP optimizer: dual simplex and barrier
+Showing barrier log only...
+
+
+Barrier performed 0 iterations in 0.04 seconds (0.09 work units)
+Barrier solve interrupted - model solved by another algorithm
+
+
+Solved with dual simplex
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+     193    7.2803421e+02   0.000000e+00   0.000000e+00      0s
+
+Solved in 193 iterations and 0.08 seconds (0.12 work units)
+Optimal objective  7.280342116e+02
+
+--- LA-Neighborhood Analysis After Improvement ---
+
+LA-Neighborhood Details:
+
+Customer 1:
+  Neighborhood size: 2
+  Neighbors: [13, 25]
+  Distances to neighbors:
+    -> Customer 13: 5.3
+    -> Customer 25: 7.5
+  Time window compatibility:
+    -> Customer 13: Window [159, 169]
+       Earliest possible arrival: 166.3
+       Latest possible arrival: 176.3
+    -> Customer 25: Window [172, 182]
+       Earliest possible arrival: 168.5
+       Latest possible arrival: 178.5
+
+Customer 2:
+  Neighborhood size: 10
+  Neighbors: [13, 21, 22, 15, 6, 4, 23, 12, 16, 18]
+  Distances to neighbors:
+    -> Customer 13: 1.9
+    -> Customer 21: 2.1
+    -> Customer 22: 2.4
+    -> Customer 15: 2.6
+    -> Customer 6: 3.3
+    -> Customer 4: 4.0
+    -> Customer 23: 4.7
+    -> Customer 12: 4.7
+    -> Customer 16: 5.0
+    -> Customer 18: 5.5
+  Time window compatibility:
+    -> Customer 13: Window [159, 169]
+       Earliest possible arrival: 51.9
+       Latest possible arrival: 61.9
+    -> Customer 21: Window [62, 72]
+       Earliest possible arrival: 52.1
+       Latest possible arrival: 62.1
+    -> Customer 22: Window [97, 107]
+       Earliest possible arrival: 52.4
+       Latest possible arrival: 62.4
+    -> Customer 15: Window [61, 71]
+       Earliest possible arrival: 52.6
+       Latest possible arrival: 62.6
+    -> Customer 6: Window [99, 109]
+       Earliest possible arrival: 53.3
+       Latest possible arrival: 63.3
+    -> Customer 4: Window [149, 159]
+       Earliest possible arrival: 54.0
+       Latest possible arrival: 64.0
+    -> Customer 23: Window [68, 78]
+       Earliest possible arrival: 54.7
+       Latest possible arrival: 64.7
+    -> Customer 12: Window [63, 73]
+       Earliest possible arrival: 54.7
+       Latest possible arrival: 64.7
+    -> Customer 16: Window [75, 85]
+       Earliest possible arrival: 55.0
+       Latest possible arrival: 65.0
+    -> Customer 18: Window [87, 97]
+       Earliest possible arrival: 55.5
+       Latest possible arrival: 65.5
+
+Customer 3:
+  Neighborhood size: 8
+  Neighbors: [24, 1, 20, 4, 25, 10, 13, 17]
+  Distances to neighbors:
+    -> Customer 24: 2.8
+    -> Customer 1: 2.9
+    -> Customer 20: 4.5
+    -> Customer 4: 5.0
+    -> Customer 25: 5.4
+    -> Customer 10: 5.8
+    -> Customer 13: 6.4
+    -> Customer 17: 10.4
+  Time window compatibility:
+    -> Customer 24: Window [153, 163]
+       Earliest possible arrival: 118.8
+       Latest possible arrival: 128.8
+    -> Customer 1: Window [161, 171]
+       Earliest possible arrival: 118.9
+       Latest possible arrival: 128.9
+    -> Customer 20: Window [126, 136]
+       Earliest possible arrival: 120.5
+       Latest possible arrival: 130.5
+    -> Customer 4: Window [149, 159]
+       Earliest possible arrival: 121.0
+       Latest possible arrival: 131.0
+    -> Customer 25: Window [172, 182]
+       Earliest possible arrival: 121.4
+       Latest possible arrival: 131.4
+    -> Customer 10: Window [124, 134]
+       Earliest possible arrival: 121.8
+       Latest possible arrival: 131.8
+    -> Customer 13: Window [159, 169]
+       Earliest possible arrival: 122.4
+       Latest possible arrival: 132.4
+    -> Customer 17: Window [157, 167]
+       Earliest possible arrival: 126.4
+       Latest possible arrival: 136.4
+
+Customer 4:
+  Neighborhood size: 5
+  Neighbors: [25, 24, 13, 1, 17]
+  Distances to neighbors:
+    -> Customer 25: 2.0
+    -> Customer 24: 3.6
+    -> Customer 13: 5.1
+    -> Customer 1: 6.4
+    -> Customer 17: 10.2
+  Time window compatibility:
+    -> Customer 25: Window [172, 182]
+       Earliest possible arrival: 151.0
+       Latest possible arrival: 161.0
+    -> Customer 24: Window [153, 163]
+       Earliest possible arrival: 152.6
+       Latest possible arrival: 162.6
+    -> Customer 13: Window [159, 169]
+       Earliest possible arrival: 154.1
+       Latest possible arrival: 164.1
+    -> Customer 1: Window [161, 171]
+       Earliest possible arrival: 155.4
+       Latest possible arrival: 165.4
+    -> Customer 17: Window [157, 167]
+       Earliest possible arrival: 159.2
+       Latest possible arrival: 169.2
+
+Customer 5:
+  Neighborhood size: 10
+  Neighbors: [6, 17, 16, 18, 8, 13, 14, 7, 2, 15]
+  Distances to neighbors:
+    -> Customer 6: 2.0
+    -> Customer 17: 2.0
+    -> Customer 16: 2.2
+    -> Customer 18: 2.2
+    -> Customer 8: 2.8
+    -> Customer 13: 3.2
+    -> Customer 14: 4.0
+    -> Customer 7: 4.1
+    -> Customer 2: 4.8
+    -> Customer 15: 5.8
+  Time window compatibility:
+    -> Customer 6: Window [99, 109]
+       Earliest possible arrival: 36.0
+       Latest possible arrival: 46.0
+    -> Customer 17: Window [157, 167]
+       Earliest possible arrival: 36.0
+       Latest possible arrival: 46.0
+    -> Customer 16: Window [75, 85]
+       Earliest possible arrival: 36.2
+       Latest possible arrival: 46.2
+    -> Customer 18: Window [87, 97]
+       Earliest possible arrival: 36.2
+       Latest possible arrival: 46.2
+    -> Customer 8: Window [95, 105]
+       Earliest possible arrival: 36.8
+       Latest possible arrival: 46.8
+    -> Customer 13: Window [159, 169]
+       Earliest possible arrival: 37.2
+       Latest possible arrival: 47.2
+    -> Customer 14: Window [32, 42]
+       Earliest possible arrival: 38.0
+       Latest possible arrival: 48.0
+    -> Customer 7: Window [81, 91]
+       Earliest possible arrival: 38.1
+       Latest possible arrival: 48.1
+    -> Customer 2: Window [50, 60]
+       Earliest possible arrival: 38.8
+       Latest possible arrival: 48.8
+    -> Customer 15: Window [61, 71]
+       Earliest possible arrival: 39.8
+       Latest possible arrival: 49.8
+
+Customer 6:
+  Neighborhood size: 10
+  Neighbors: [13, 8, 17, 1, 22, 10, 4, 3, 20, 24]
+  Distances to neighbors:
+    -> Customer 13: 1.4
+    -> Customer 8: 4.0
+    -> Customer 17: 4.0
+    -> Customer 1: 5.0
+    -> Customer 22: 5.6
+    -> Customer 10: 6.1
+    -> Customer 4: 6.3
+    -> Customer 3: 6.7
+    -> Customer 20: 8.1
+    -> Customer 24: 8.1
+  Time window compatibility:
+    -> Customer 13: Window [159, 169]
+       Earliest possible arrival: 100.4
+       Latest possible arrival: 110.4
+    -> Customer 8: Window [95, 105]
+       Earliest possible arrival: 103.0
+       Latest possible arrival: 113.0
+    -> Customer 17: Window [157, 167]
+       Earliest possible arrival: 103.0
+       Latest possible arrival: 113.0
+    -> Customer 1: Window [161, 171]
+       Earliest possible arrival: 104.0
+       Latest possible arrival: 114.0
+    -> Customer 22: Window [97, 107]
+       Earliest possible arrival: 104.6
+       Latest possible arrival: 114.6
+    -> Customer 10: Window [124, 134]
+       Earliest possible arrival: 105.1
+       Latest possible arrival: 115.1
+    -> Customer 4: Window [149, 159]
+       Earliest possible arrival: 105.3
+       Latest possible arrival: 115.3
+    -> Customer 3: Window [116, 126]
+       Earliest possible arrival: 105.7
+       Latest possible arrival: 115.7
+    -> Customer 20: Window [126, 136]
+       Earliest possible arrival: 107.1
+       Latest possible arrival: 117.1
+    -> Customer 24: Window [153, 163]
+       Earliest possible arrival: 107.1
+       Latest possible arrival: 117.1
+
+Customer 7:
+  Neighborhood size: 10
+  Neighbors: [18, 19, 8, 10, 6, 1, 17, 13, 20, 3]
+  Distances to neighbors:
+    -> Customer 18: 2.0
+    -> Customer 19: 2.2
+    -> Customer 8: 2.4
+    -> Customer 10: 2.8
+    -> Customer 6: 4.1
+    -> Customer 1: 4.2
+    -> Customer 17: 5.0
+    -> Customer 13: 5.4
+    -> Customer 20: 5.8
+    -> Customer 3: 7.1
+  Time window compatibility:
+    -> Customer 18: Window [87, 97]
+       Earliest possible arrival: 83.0
+       Latest possible arrival: 93.0
+    -> Customer 19: Window [76, 86]
+       Earliest possible arrival: 83.2
+       Latest possible arrival: 93.2
+    -> Customer 8: Window [95, 105]
+       Earliest possible arrival: 83.4
+       Latest possible arrival: 93.4
+    -> Customer 10: Window [124, 134]
+       Earliest possible arrival: 83.8
+       Latest possible arrival: 93.8
+    -> Customer 6: Window [99, 109]
+       Earliest possible arrival: 85.1
+       Latest possible arrival: 95.1
+    -> Customer 1: Window [161, 171]
+       Earliest possible arrival: 85.2
+       Latest possible arrival: 95.2
+    -> Customer 17: Window [157, 167]
+       Earliest possible arrival: 86.0
+       Latest possible arrival: 96.0
+    -> Customer 13: Window [159, 169]
+       Earliest possible arrival: 86.4
+       Latest possible arrival: 96.4
+    -> Customer 20: Window [126, 136]
+       Earliest possible arrival: 86.8
+       Latest possible arrival: 96.8
+    -> Customer 3: Window [116, 126]
+       Earliest possible arrival: 88.1
+       Latest possible arrival: 98.1
+
+Customer 8:
+  Neighborhood size: 10
+  Neighbors: [17, 6, 10, 13, 1, 20, 3, 9, 22, 4]
+  Distances to neighbors:
+    -> Customer 17: 2.8
+    -> Customer 6: 4.0
+    -> Customer 10: 5.2
+    -> Customer 13: 5.4
+    -> Customer 1: 6.3
+    -> Customer 20: 8.3
+    -> Customer 3: 9.0
+    -> Customer 9: 9.6
+    -> Customer 22: 9.6
+    -> Customer 4: 10.1
+  Time window compatibility:
+    -> Customer 17: Window [157, 167]
+       Earliest possible arrival: 97.8
+       Latest possible arrival: 107.8
+    -> Customer 6: Window [99, 109]
+       Earliest possible arrival: 99.0
+       Latest possible arrival: 109.0
+    -> Customer 10: Window [124, 134]
+       Earliest possible arrival: 100.2
+       Latest possible arrival: 110.2
+    -> Customer 13: Window [159, 169]
+       Earliest possible arrival: 100.4
+       Latest possible arrival: 110.4
+    -> Customer 1: Window [161, 171]
+       Earliest possible arrival: 101.3
+       Latest possible arrival: 111.3
+    -> Customer 20: Window [126, 136]
+       Earliest possible arrival: 103.3
+       Latest possible arrival: 113.3
+    -> Customer 3: Window [116, 126]
+       Earliest possible arrival: 104.0
+       Latest possible arrival: 114.0
+    -> Customer 9: Window [97, 107]
+       Earliest possible arrival: 104.6
+       Latest possible arrival: 114.6
+    -> Customer 22: Window [97, 107]
+       Earliest possible arrival: 104.6
+       Latest possible arrival: 114.6
+    -> Customer 4: Window [149, 159]
+       Earliest possible arrival: 105.1
+       Latest possible arrival: 115.1
+
+Customer 9:
+  Neighborhood size: 10
+  Neighbors: [20, 3, 1, 10, 24, 4, 25, 6, 13, 17]
+  Distances to neighbors:
+    -> Customer 20: 2.2
+    -> Customer 3: 3.0
+    -> Customer 1: 3.6
+    -> Customer 10: 5.0
+    -> Customer 24: 5.4
+    -> Customer 4: 8.0
+    -> Customer 25: 8.2
+    -> Customer 6: 8.5
+    -> Customer 13: 8.6
+    -> Customer 17: 11.7
+  Time window compatibility:
+    -> Customer 20: Window [126, 136]
+       Earliest possible arrival: 99.2
+       Latest possible arrival: 109.2
+    -> Customer 3: Window [116, 126]
+       Earliest possible arrival: 100.0
+       Latest possible arrival: 110.0
+    -> Customer 1: Window [161, 171]
+       Earliest possible arrival: 100.6
+       Latest possible arrival: 110.6
+    -> Customer 10: Window [124, 134]
+       Earliest possible arrival: 102.0
+       Latest possible arrival: 112.0
+    -> Customer 24: Window [153, 163]
+       Earliest possible arrival: 102.4
+       Latest possible arrival: 112.4
+    -> Customer 4: Window [149, 159]
+       Earliest possible arrival: 105.0
+       Latest possible arrival: 115.0
+    -> Customer 25: Window [172, 182]
+       Earliest possible arrival: 105.2
+       Latest possible arrival: 115.2
+    -> Customer 6: Window [99, 109]
+       Earliest possible arrival: 105.5
+       Latest possible arrival: 115.5
+    -> Customer 13: Window [159, 169]
+       Earliest possible arrival: 105.6
+       Latest possible arrival: 115.6
+    -> Customer 17: Window [157, 167]
+       Earliest possible arrival: 108.7
+       Latest possible arrival: 118.7
+
+Customer 10:
+  Neighborhood size: 7
+  Neighbors: [1, 20, 13, 17, 24, 4, 25]
+  Distances to neighbors:
+    -> Customer 1: 3.1
+    -> Customer 20: 3.2
+    -> Customer 13: 7.0
+    -> Customer 17: 7.8
+    -> Customer 24: 8.6
+    -> Customer 4: 9.4
+    -> Customer 25: 10.6
+  Time window compatibility:
+    -> Customer 1: Window [161, 171]
+       Earliest possible arrival: 127.1
+       Latest possible arrival: 137.1
+    -> Customer 20: Window [126, 136]
+       Earliest possible arrival: 127.2
+       Latest possible arrival: 137.2
+    -> Customer 13: Window [159, 169]
+       Earliest possible arrival: 131.0
+       Latest possible arrival: 141.0
+    -> Customer 17: Window [157, 167]
+       Earliest possible arrival: 131.8
+       Latest possible arrival: 141.8
+    -> Customer 24: Window [153, 163]
+       Earliest possible arrival: 132.6
+       Latest possible arrival: 142.6
+    -> Customer 4: Window [149, 159]
+       Earliest possible arrival: 133.4
+       Latest possible arrival: 143.4
+    -> Customer 25: Window [172, 182]
+       Earliest possible arrival: 134.6
+       Latest possible arrival: 144.6
+
+Customer 11:
+  Neighborhood size: 10
+  Neighbors: [19, 10, 7, 8, 18, 20, 1, 6, 9, 17]
+  Distances to neighbors:
+    -> Customer 19: 1.4
+    -> Customer 10: 2.2
+    -> Customer 7: 3.0
+    -> Customer 8: 4.8
+    -> Customer 18: 5.0
+    -> Customer 20: 5.0
+    -> Customer 1: 5.3
+    -> Customer 6: 7.1
+    -> Customer 9: 7.1
+    -> Customer 17: 7.6
+  Time window compatibility:
+    -> Customer 19: Window [76, 86]
+       Earliest possible arrival: 68.4
+       Latest possible arrival: 78.4
+    -> Customer 10: Window [124, 134]
+       Earliest possible arrival: 69.2
+       Latest possible arrival: 79.2
+    -> Customer 7: Window [81, 91]
+       Earliest possible arrival: 70.0
+       Latest possible arrival: 80.0
+    -> Customer 8: Window [95, 105]
+       Earliest possible arrival: 71.8
+       Latest possible arrival: 81.8
+    -> Customer 18: Window [87, 97]
+       Earliest possible arrival: 72.0
+       Latest possible arrival: 82.0
+    -> Customer 20: Window [126, 136]
+       Earliest possible arrival: 72.0
+       Latest possible arrival: 82.0
+    -> Customer 1: Window [161, 171]
+       Earliest possible arrival: 72.3
+       Latest possible arrival: 82.3
+    -> Customer 6: Window [99, 109]
+       Earliest possible arrival: 74.1
+       Latest possible arrival: 84.1
+    -> Customer 9: Window [97, 107]
+       Earliest possible arrival: 74.1
+       Latest possible arrival: 84.1
+    -> Customer 17: Window [157, 167]
+       Earliest possible arrival: 74.6
+       Latest possible arrival: 84.6
+
+Customer 12:
+  Neighborhood size: 10
+  Neighbors: [3, 24, 4, 21, 1, 25, 13, 6, 9, 22]
+  Distances to neighbors:
+    -> Customer 3: 2.2
+    -> Customer 24: 3.0
+    -> Customer 4: 3.2
+    -> Customer 21: 3.2
+    -> Customer 1: 3.3
+    -> Customer 25: 4.2
+    -> Customer 13: 4.5
+    -> Customer 6: 5.1
+    -> Customer 9: 5.1
+    -> Customer 22: 5.1
+  Time window compatibility:
+    -> Customer 3: Window [116, 126]
+       Earliest possible arrival: 65.2
+       Latest possible arrival: 75.2
+    -> Customer 24: Window [153, 163]
+       Earliest possible arrival: 66.0
+       Latest possible arrival: 76.0
+    -> Customer 4: Window [149, 159]
+       Earliest possible arrival: 66.2
+       Latest possible arrival: 76.2
+    -> Customer 21: Window [62, 72]
+       Earliest possible arrival: 66.2
+       Latest possible arrival: 76.2
+    -> Customer 1: Window [161, 171]
+       Earliest possible arrival: 66.3
+       Latest possible arrival: 76.3
+    -> Customer 25: Window [172, 182]
+       Earliest possible arrival: 67.2
+       Latest possible arrival: 77.2
+    -> Customer 13: Window [159, 169]
+       Earliest possible arrival: 67.5
+       Latest possible arrival: 77.5
+    -> Customer 6: Window [99, 109]
+       Earliest possible arrival: 68.1
+       Latest possible arrival: 78.1
+    -> Customer 9: Window [97, 107]
+       Earliest possible arrival: 68.1
+       Latest possible arrival: 78.1
+    -> Customer 22: Window [97, 107]
+       Earliest possible arrival: 68.1
+       Latest possible arrival: 78.1
+
+Customer 13:
+  Neighborhood size: 3
+  Neighbors: [17, 1, 25]
+  Distances to neighbors:
+    -> Customer 17: 5.1
+    -> Customer 1: 5.3
+    -> Customer 25: 7.1
+  Time window compatibility:
+    -> Customer 17: Window [157, 167]
+       Earliest possible arrival: 164.1
+       Latest possible arrival: 174.1
+    -> Customer 1: Window [161, 171]
+       Earliest possible arrival: 164.3
+       Latest possible arrival: 174.3
+    -> Customer 25: Window [172, 182]
+       Earliest possible arrival: 166.1
+       Latest possible arrival: 176.1
+
+Customer 14:
+  Neighborhood size: 10
+  Neighbors: [16, 15, 5, 2, 13, 6, 17, 22, 18, 21]
+  Distances to neighbors:
+    -> Customer 16: 2.2
+    -> Customer 15: 3.2
+    -> Customer 5: 4.0
+    -> Customer 2: 4.2
+    -> Customer 13: 4.2
+    -> Customer 6: 4.5
+    -> Customer 17: 4.5
+    -> Customer 22: 6.0
+    -> Customer 18: 6.1
+    -> Customer 21: 6.3
+  Time window compatibility:
+    -> Customer 16: Window [75, 85]
+       Earliest possible arrival: 34.2
+       Latest possible arrival: 44.2
+    -> Customer 15: Window [61, 71]
+       Earliest possible arrival: 35.2
+       Latest possible arrival: 45.2
+    -> Customer 5: Window [34, 44]
+       Earliest possible arrival: 36.0
+       Latest possible arrival: 46.0
+    -> Customer 2: Window [50, 60]
+       Earliest possible arrival: 36.2
+       Latest possible arrival: 46.2
+    -> Customer 13: Window [159, 169]
+       Earliest possible arrival: 36.2
+       Latest possible arrival: 46.2
+    -> Customer 6: Window [99, 109]
+       Earliest possible arrival: 36.5
+       Latest possible arrival: 46.5
+    -> Customer 17: Window [157, 167]
+       Earliest possible arrival: 36.5
+       Latest possible arrival: 46.5
+    -> Customer 22: Window [97, 107]
+       Earliest possible arrival: 38.0
+       Latest possible arrival: 48.0
+    -> Customer 18: Window [87, 97]
+       Earliest possible arrival: 38.1
+       Latest possible arrival: 48.1
+    -> Customer 21: Window [62, 72]
+       Earliest possible arrival: 38.3
+       Latest possible arrival: 48.3
+
+Customer 15:
+  Neighborhood size: 10
+  Neighbors: [22, 13, 21, 16, 23, 6, 4, 17, 12, 18]
+  Distances to neighbors:
+    -> Customer 22: 3.2
+    -> Customer 13: 4.0
+    -> Customer 21: 4.2
+    -> Customer 16: 5.0
+    -> Customer 23: 5.0
+    -> Customer 6: 5.1
+    -> Customer 4: 5.8
+    -> Customer 17: 7.1
+    -> Customer 12: 7.2
+    -> Customer 18: 7.3
+  Time window compatibility:
+    -> Customer 22: Window [97, 107]
+       Earliest possible arrival: 64.2
+       Latest possible arrival: 74.2
+    -> Customer 13: Window [159, 169]
+       Earliest possible arrival: 65.0
+       Latest possible arrival: 75.0
+    -> Customer 21: Window [62, 72]
+       Earliest possible arrival: 65.2
+       Latest possible arrival: 75.2
+    -> Customer 16: Window [75, 85]
+       Earliest possible arrival: 66.0
+       Latest possible arrival: 76.0
+    -> Customer 23: Window [68, 78]
+       Earliest possible arrival: 66.0
+       Latest possible arrival: 76.0
+    -> Customer 6: Window [99, 109]
+       Earliest possible arrival: 66.1
+       Latest possible arrival: 76.1
+    -> Customer 4: Window [149, 159]
+       Earliest possible arrival: 66.8
+       Latest possible arrival: 76.8
+    -> Customer 17: Window [157, 167]
+       Earliest possible arrival: 68.1
+       Latest possible arrival: 78.1
+    -> Customer 12: Window [63, 73]
+       Earliest possible arrival: 68.2
+       Latest possible arrival: 78.2
+    -> Customer 18: Window [87, 97]
+       Earliest possible arrival: 68.3
+       Latest possible arrival: 78.3
+
+Customer 16:
+  Neighborhood size: 10
+  Neighbors: [17, 6, 13, 18, 8, 7, 22, 19, 1, 10]
+  Distances to neighbors:
+    -> Customer 17: 2.2
+    -> Customer 6: 3.6
+    -> Customer 13: 4.1
+    -> Customer 18: 4.5
+    -> Customer 8: 4.6
+    -> Customer 7: 6.3
+    -> Customer 22: 7.3
+    -> Customer 19: 8.1
+    -> Customer 1: 8.5
+    -> Customer 10: 8.9
+  Time window compatibility:
+    -> Customer 17: Window [157, 167]
+       Earliest possible arrival: 77.2
+       Latest possible arrival: 87.2
+    -> Customer 6: Window [99, 109]
+       Earliest possible arrival: 78.6
+       Latest possible arrival: 88.6
+    -> Customer 13: Window [159, 169]
+       Earliest possible arrival: 79.1
+       Latest possible arrival: 89.1
+    -> Customer 18: Window [87, 97]
+       Earliest possible arrival: 79.5
+       Latest possible arrival: 89.5
+    -> Customer 8: Window [95, 105]
+       Earliest possible arrival: 79.6
+       Latest possible arrival: 89.6
+    -> Customer 7: Window [81, 91]
+       Earliest possible arrival: 81.3
+       Latest possible arrival: 91.3
+    -> Customer 22: Window [97, 107]
+       Earliest possible arrival: 82.3
+       Latest possible arrival: 92.3
+    -> Customer 19: Window [76, 86]
+       Earliest possible arrival: 83.1
+       Latest possible arrival: 93.1
+    -> Customer 1: Window [161, 171]
+       Earliest possible arrival: 83.5
+       Latest possible arrival: 93.5
+    -> Customer 10: Window [124, 134]
+       Earliest possible arrival: 83.9
+       Latest possible arrival: 93.9
+
+Customer 17:
+  Neighborhood size: 3
+  Neighbors: [13, 1, 25]
+  Distances to neighbors:
+    -> Customer 13: 5.1
+    -> Customer 1: 8.1
+    -> Customer 25: 12.2
+  Time window compatibility:
+    -> Customer 13: Window [159, 169]
+       Earliest possible arrival: 162.1
+       Latest possible arrival: 172.1
+    -> Customer 1: Window [161, 171]
+       Earliest possible arrival: 165.1
+       Latest possible arrival: 175.1
+    -> Customer 25: Window [172, 182]
+       Earliest possible arrival: 169.2
+       Latest possible arrival: 179.2
+
+Customer 18:
+  Neighborhood size: 10
+  Neighbors: [7, 8, 6, 13, 17, 10, 1, 3, 20, 22]
+  Distances to neighbors:
+    -> Customer 7: 2.0
+    -> Customer 8: 2.1
+    -> Customer 6: 2.2
+    -> Customer 13: 3.6
+    -> Customer 17: 3.6
+    -> Customer 10: 4.5
+    -> Customer 1: 4.6
+    -> Customer 3: 7.1
+    -> Customer 20: 7.1
+    -> Customer 22: 7.8
+  Time window compatibility:
+    -> Customer 7: Window [81, 91]
+       Earliest possible arrival: 89.0
+       Latest possible arrival: 99.0
+    -> Customer 8: Window [95, 105]
+       Earliest possible arrival: 89.1
+       Latest possible arrival: 99.1
+    -> Customer 6: Window [99, 109]
+       Earliest possible arrival: 89.2
+       Latest possible arrival: 99.2
+    -> Customer 13: Window [159, 169]
+       Earliest possible arrival: 90.6
+       Latest possible arrival: 100.6
+    -> Customer 17: Window [157, 167]
+       Earliest possible arrival: 90.6
+       Latest possible arrival: 100.6
+    -> Customer 10: Window [124, 134]
+       Earliest possible arrival: 91.5
+       Latest possible arrival: 101.5
+    -> Customer 1: Window [161, 171]
+       Earliest possible arrival: 91.6
+       Latest possible arrival: 101.6
+    -> Customer 3: Window [116, 126]
+       Earliest possible arrival: 94.1
+       Latest possible arrival: 104.1
+    -> Customer 20: Window [126, 136]
+       Earliest possible arrival: 94.1
+       Latest possible arrival: 104.1
+    -> Customer 22: Window [97, 107]
+       Earliest possible arrival: 94.8
+       Latest possible arrival: 104.8
+
+Customer 19:
+  Neighborhood size: 10
+  Neighbors: [7, 10, 8, 18, 1, 20, 6, 17, 13, 9]
+  Distances to neighbors:
+    -> Customer 7: 2.2
+    -> Customer 10: 3.0
+    -> Customer 8: 3.5
+    -> Customer 18: 4.1
+    -> Customer 1: 5.6
+    -> Customer 20: 6.1
+    -> Customer 6: 6.3
+    -> Customer 17: 6.3
+    -> Customer 13: 7.6
+    -> Customer 9: 8.0
+  Time window compatibility:
+    -> Customer 7: Window [81, 91]
+       Earliest possible arrival: 78.2
+       Latest possible arrival: 88.2
+    -> Customer 10: Window [124, 134]
+       Earliest possible arrival: 79.0
+       Latest possible arrival: 89.0
+    -> Customer 8: Window [95, 105]
+       Earliest possible arrival: 79.5
+       Latest possible arrival: 89.5
+    -> Customer 18: Window [87, 97]
+       Earliest possible arrival: 80.1
+       Latest possible arrival: 90.1
+    -> Customer 1: Window [161, 171]
+       Earliest possible arrival: 81.6
+       Latest possible arrival: 91.6
+    -> Customer 20: Window [126, 136]
+       Earliest possible arrival: 82.1
+       Latest possible arrival: 92.1
+    -> Customer 6: Window [99, 109]
+       Earliest possible arrival: 82.3
+       Latest possible arrival: 92.3
+    -> Customer 17: Window [157, 167]
+       Earliest possible arrival: 82.3
+       Latest possible arrival: 92.3
+    -> Customer 13: Window [159, 169]
+       Earliest possible arrival: 83.6
+       Latest possible arrival: 93.6
+    -> Customer 9: Window [97, 107]
+       Earliest possible arrival: 84.0
+       Latest possible arrival: 94.0
+
+Customer 20:
+  Neighborhood size: 7
+  Neighbors: [10, 1, 24, 13, 4, 25, 17]
+  Distances to neighbors:
+    -> Customer 10: 3.2
+    -> Customer 1: 3.3
+    -> Customer 24: 7.2
+    -> Customer 13: 8.5
+    -> Customer 4: 9.2
+    -> Customer 25: 9.8
+    -> Customer 17: 10.6
+  Time window compatibility:
+    -> Customer 10: Window [124, 134]
+       Earliest possible arrival: 129.2
+       Latest possible arrival: 139.2
+    -> Customer 1: Window [161, 171]
+       Earliest possible arrival: 129.3
+       Latest possible arrival: 139.3
+    -> Customer 24: Window [153, 163]
+       Earliest possible arrival: 133.2
+       Latest possible arrival: 143.2
+    -> Customer 13: Window [159, 169]
+       Earliest possible arrival: 134.5
+       Latest possible arrival: 144.5
+    -> Customer 4: Window [149, 159]
+       Earliest possible arrival: 135.2
+       Latest possible arrival: 145.2
+    -> Customer 25: Window [172, 182]
+       Earliest possible arrival: 135.8
+       Latest possible arrival: 145.8
+    -> Customer 17: Window [157, 167]
+       Earliest possible arrival: 136.6
+       Latest possible arrival: 146.6
+
+Customer 21:
+  Neighborhood size: 10
+  Neighbors: [4, 22, 12, 13, 23, 25, 15, 6, 24, 3]
+  Distances to neighbors:
+    -> Customer 4: 2.0
+    -> Customer 22: 2.0
+    -> Customer 12: 3.2
+    -> Customer 13: 3.2
+    -> Customer 23: 3.6
+    -> Customer 25: 4.0
+    -> Customer 15: 4.2
+    -> Customer 6: 4.5
+    -> Customer 24: 5.0
+    -> Customer 3: 5.4
+  Time window compatibility:
+    -> Customer 4: Window [149, 159]
+       Earliest possible arrival: 64.0
+       Latest possible arrival: 74.0
+    -> Customer 22: Window [97, 107]
+       Earliest possible arrival: 64.0
+       Latest possible arrival: 74.0
+    -> Customer 12: Window [63, 73]
+       Earliest possible arrival: 65.2
+       Latest possible arrival: 75.2
+    -> Customer 13: Window [159, 169]
+       Earliest possible arrival: 65.2
+       Latest possible arrival: 75.2
+    -> Customer 23: Window [68, 78]
+       Earliest possible arrival: 65.6
+       Latest possible arrival: 75.6
+    -> Customer 25: Window [172, 182]
+       Earliest possible arrival: 66.0
+       Latest possible arrival: 76.0
+    -> Customer 15: Window [61, 71]
+       Earliest possible arrival: 66.2
+       Latest possible arrival: 76.2
+    -> Customer 6: Window [99, 109]
+       Earliest possible arrival: 66.5
+       Latest possible arrival: 76.5
+    -> Customer 24: Window [153, 163]
+       Earliest possible arrival: 67.0
+       Latest possible arrival: 77.0
+    -> Customer 3: Window [116, 126]
+       Earliest possible arrival: 67.4
+       Latest possible arrival: 77.4
+
+Customer 22:
+  Neighborhood size: 10
+  Neighbors: [4, 13, 25, 6, 24, 3, 1, 17, 10, 20]
+  Distances to neighbors:
+    -> Customer 4: 2.8
+    -> Customer 13: 4.2
+    -> Customer 25: 4.5
+    -> Customer 6: 5.6
+    -> Customer 24: 6.4
+    -> Customer 3: 7.3
+    -> Customer 1: 7.8
+    -> Customer 17: 8.9
+    -> Customer 10: 10.4
+    -> Customer 20: 11.0
+  Time window compatibility:
+    -> Customer 4: Window [149, 159]
+       Earliest possible arrival: 99.8
+       Latest possible arrival: 109.8
+    -> Customer 13: Window [159, 169]
+       Earliest possible arrival: 101.2
+       Latest possible arrival: 111.2
+    -> Customer 25: Window [172, 182]
+       Earliest possible arrival: 101.5
+       Latest possible arrival: 111.5
+    -> Customer 6: Window [99, 109]
+       Earliest possible arrival: 102.6
+       Latest possible arrival: 112.6
+    -> Customer 24: Window [153, 163]
+       Earliest possible arrival: 103.4
+       Latest possible arrival: 113.4
+    -> Customer 3: Window [116, 126]
+       Earliest possible arrival: 104.3
+       Latest possible arrival: 114.3
+    -> Customer 1: Window [161, 171]
+       Earliest possible arrival: 104.8
+       Latest possible arrival: 114.8
+    -> Customer 17: Window [157, 167]
+       Earliest possible arrival: 105.9
+       Latest possible arrival: 115.9
+    -> Customer 10: Window [124, 134]
+       Earliest possible arrival: 107.4
+       Latest possible arrival: 117.4
+    -> Customer 20: Window [126, 136]
+       Earliest possible arrival: 108.0
+       Latest possible arrival: 118.0
+
+Customer 23:
+  Neighborhood size: 10
+  Neighbors: [22, 4, 21, 25, 24, 13, 6, 3, 1, 16]
+  Distances to neighbors:
+    -> Customer 22: 2.2
+    -> Customer 4: 3.0
+    -> Customer 21: 3.6
+    -> Customer 25: 3.6
+    -> Customer 24: 6.3
+    -> Customer 13: 6.4
+    -> Customer 6: 7.8
+    -> Customer 3: 8.0
+    -> Customer 1: 9.2
+    -> Customer 16: 9.5
+  Time window compatibility:
+    -> Customer 22: Window [97, 107]
+       Earliest possible arrival: 70.2
+       Latest possible arrival: 80.2
+    -> Customer 4: Window [149, 159]
+       Earliest possible arrival: 71.0
+       Latest possible arrival: 81.0
+    -> Customer 21: Window [62, 72]
+       Earliest possible arrival: 71.6
+       Latest possible arrival: 81.6
+    -> Customer 25: Window [172, 182]
+       Earliest possible arrival: 71.6
+       Latest possible arrival: 81.6
+    -> Customer 24: Window [153, 163]
+       Earliest possible arrival: 74.3
+       Latest possible arrival: 84.3
+    -> Customer 13: Window [159, 169]
+       Earliest possible arrival: 74.4
+       Latest possible arrival: 84.4
+    -> Customer 6: Window [99, 109]
+       Earliest possible arrival: 75.8
+       Latest possible arrival: 85.8
+    -> Customer 3: Window [116, 126]
+       Earliest possible arrival: 76.0
+       Latest possible arrival: 86.0
+    -> Customer 1: Window [161, 171]
+       Earliest possible arrival: 77.2
+       Latest possible arrival: 87.2
+    -> Customer 16: Window [75, 85]
+       Earliest possible arrival: 77.5
+       Latest possible arrival: 87.5
+
+Customer 24:
+  Neighborhood size: 5
+  Neighbors: [25, 4, 1, 13, 17]
+  Distances to neighbors:
+    -> Customer 25: 3.0
+    -> Customer 4: 3.6
+    -> Customer 1: 5.5
+    -> Customer 13: 7.3
+    -> Customer 17: 12.0
+  Time window compatibility:
+    -> Customer 25: Window [172, 182]
+       Earliest possible arrival: 156.0
+       Latest possible arrival: 166.0
+    -> Customer 4: Window [149, 159]
+       Earliest possible arrival: 156.6
+       Latest possible arrival: 166.6
+    -> Customer 1: Window [161, 171]
+       Earliest possible arrival: 158.5
+       Latest possible arrival: 168.5
+    -> Customer 13: Window [159, 169]
+       Earliest possible arrival: 160.3
+       Latest possible arrival: 170.3
+    -> Customer 17: Window [157, 167]
+       Earliest possible arrival: 165.0
+       Latest possible arrival: 175.0
+
+Customer 25:
+  Neighborhood size: 0
+  Neighbors: []
+  Distances to neighbors:
+  Time window compatibility:
+
+--- Bucket Analysis ---
+
+Time Bucket Analysis:
+
+Customer 1:
+  Time window: (np.int64(161), np.int64(171))
+  Number of buckets: 10
+  Bucket ranges:
+    Bucket 0: [161.0, 162.0]
+    Bucket 1: [162.0, 163.0]
+    Bucket 2: [163.0, 164.0]
+    Bucket 3: [164.0, 165.0]
+    Bucket 4: [165.0, 166.0]
+    Bucket 5: [166.0, 167.0]
+    Bucket 6: [167.0, 168.0]
+    Bucket 7: [168.0, 169.0]
+    Bucket 8: [169.0, 170.0]
+    Bucket 9: [170.0, 171.0]
+
+Customer 2:
+  Time window: (np.int64(50), np.int64(60))
+  Number of buckets: 10
+  Bucket ranges:
+    Bucket 0: [50.0, 51.0]
+    Bucket 1: [51.0, 52.0]
+    Bucket 2: [52.0, 53.0]
+    Bucket 3: [53.0, 54.0]
+    Bucket 4: [54.0, 55.0]
+    Bucket 5: [55.0, 56.0]
+    Bucket 6: [56.0, 57.0]
+    Bucket 7: [57.0, 58.0]
+    Bucket 8: [58.0, 59.0]
+    Bucket 9: [59.0, 60.0]
+
+Customer 3:
+  Time window: (np.int64(116), np.int64(126))
+  Number of buckets: 10
+  Bucket ranges:
+    Bucket 0: [116.0, 117.0]
+    Bucket 1: [117.0, 118.0]
+    Bucket 2: [118.0, 119.0]
+    Bucket 3: [119.0, 120.0]
+    Bucket 4: [120.0, 121.0]
+    Bucket 5: [121.0, 122.0]
+    Bucket 6: [122.0, 123.0]
+    Bucket 7: [123.0, 124.0]
+    Bucket 8: [124.0, 125.0]
+    Bucket 9: [125.0, 126.0]
+
+Customer 4:
+  Time window: (np.int64(149), np.int64(159))
+  Number of buckets: 10
+  Bucket ranges:
+    Bucket 0: [149.0, 150.0]
+    Bucket 1: [150.0, 151.0]
+    Bucket 2: [151.0, 152.0]
+    Bucket 3: [152.0, 153.0]
+    Bucket 4: [153.0, 154.0]
+    Bucket 5: [154.0, 155.0]
+    Bucket 6: [155.0, 156.0]
+    Bucket 7: [156.0, 157.0]
+    Bucket 8: [157.0, 158.0]
+    Bucket 9: [158.0, 159.0]
+
+Customer 5:
+  Time window: (np.int64(34), np.int64(44))
+  Number of buckets: 10
+  Bucket ranges:
+    Bucket 0: [34.0, 35.0]
+    Bucket 1: [35.0, 36.0]
+    Bucket 2: [36.0, 37.0]
+    Bucket 3: [37.0, 38.0]
+    Bucket 4: [38.0, 39.0]
+    Bucket 5: [39.0, 40.0]
+    Bucket 6: [40.0, 41.0]
+    Bucket 7: [41.0, 42.0]
+    Bucket 8: [42.0, 43.0]
+    Bucket 9: [43.0, 44.0]
+
+Customer 6:
+  Time window: (np.int64(99), np.int64(109))
+  Number of buckets: 10
+  Bucket ranges:
+    Bucket 0: [99.0, 100.0]
+    Bucket 1: [100.0, 101.0]
+    Bucket 2: [101.0, 102.0]
+    Bucket 3: [102.0, 103.0]
+    Bucket 4: [103.0, 104.0]
+    Bucket 5: [104.0, 105.0]
+    Bucket 6: [105.0, 106.0]
+    Bucket 7: [106.0, 107.0]
+    Bucket 8: [107.0, 108.0]
+    Bucket 9: [108.0, 109.0]
+
+Customer 7:
+  Time window: (np.int64(81), np.int64(91))
+  Number of buckets: 10
+  Bucket ranges:
+    Bucket 0: [81.0, 82.0]
+    Bucket 1: [82.0, 83.0]
+    Bucket 2: [83.0, 84.0]
+    Bucket 3: [84.0, 85.0]
+    Bucket 4: [85.0, 86.0]
+    Bucket 5: [86.0, 87.0]
+    Bucket 6: [87.0, 88.0]
+    Bucket 7: [88.0, 89.0]
+    Bucket 8: [89.0, 90.0]
+    Bucket 9: [90.0, 91.0]
+
+Customer 8:
+  Time window: (np.int64(95), np.int64(105))
+  Number of buckets: 10
+  Bucket ranges:
+    Bucket 0: [95.0, 96.0]
+    Bucket 1: [96.0, 97.0]
+    Bucket 2: [97.0, 98.0]
+    Bucket 3: [98.0, 99.0]
+    Bucket 4: [99.0, 100.0]
+    Bucket 5: [100.0, 101.0]
+    Bucket 6: [101.0, 102.0]
+    Bucket 7: [102.0, 103.0]
+    Bucket 8: [103.0, 104.0]
+    Bucket 9: [104.0, 105.0]
+
+Customer 9:
+  Time window: (np.int64(97), np.int64(107))
+  Number of buckets: 10
+  Bucket ranges:
+    Bucket 0: [97.0, 98.0]
+    Bucket 1: [98.0, 99.0]
+    Bucket 2: [99.0, 100.0]
+    Bucket 3: [100.0, 101.0]
+    Bucket 4: [101.0, 102.0]
+    Bucket 5: [102.0, 103.0]
+    Bucket 6: [103.0, 104.0]
+    Bucket 7: [104.0, 105.0]
+    Bucket 8: [105.0, 106.0]
+    Bucket 9: [106.0, 107.0]
+
+Customer 10:
+  Time window: (np.int64(124), np.int64(134))
+  Number of buckets: 10
+  Bucket ranges:
+    Bucket 0: [124.0, 125.0]
+    Bucket 1: [125.0, 126.0]
+    Bucket 2: [126.0, 127.0]
+    Bucket 3: [127.0, 128.0]
+    Bucket 4: [128.0, 129.0]
+    Bucket 5: [129.0, 130.0]
+    Bucket 6: [130.0, 131.0]
+    Bucket 7: [131.0, 132.0]
+    Bucket 8: [132.0, 133.0]
+    Bucket 9: [133.0, 134.0]
+
+Customer 11:
+  Time window: (np.int64(67), np.int64(77))
+  Number of buckets: 10
+  Bucket ranges:
+    Bucket 0: [67.0, 68.0]
+    Bucket 1: [68.0, 69.0]
+    Bucket 2: [69.0, 70.0]
+    Bucket 3: [70.0, 71.0]
+    Bucket 4: [71.0, 72.0]
+    Bucket 5: [72.0, 73.0]
+    Bucket 6: [73.0, 74.0]
+    Bucket 7: [74.0, 75.0]
+    Bucket 8: [75.0, 76.0]
+    Bucket 9: [76.0, 77.0]
+
+Customer 12:
+  Time window: (np.int64(63), np.int64(73))
+  Number of buckets: 10
+  Bucket ranges:
+    Bucket 0: [63.0, 64.0]
+    Bucket 1: [64.0, 65.0]
+    Bucket 2: [65.0, 66.0]
+    Bucket 3: [66.0, 67.0]
+    Bucket 4: [67.0, 68.0]
+    Bucket 5: [68.0, 69.0]
+    Bucket 6: [69.0, 70.0]
+    Bucket 7: [70.0, 71.0]
+    Bucket 8: [71.0, 72.0]
+    Bucket 9: [72.0, 73.0]
+
+Customer 13:
+  Time window: (np.int64(159), np.int64(169))
+  Number of buckets: 10
+  Bucket ranges:
+    Bucket 0: [159.0, 160.0]
+    Bucket 1: [160.0, 161.0]
+    Bucket 2: [161.0, 162.0]
+    Bucket 3: [162.0, 163.0]
+    Bucket 4: [163.0, 164.0]
+    Bucket 5: [164.0, 165.0]
+    Bucket 6: [165.0, 166.0]
+    Bucket 7: [166.0, 167.0]
+    Bucket 8: [167.0, 168.0]
+    Bucket 9: [168.0, 169.0]
+
+Customer 14:
+  Time window: (np.int64(32), np.int64(42))
+  Number of buckets: 10
+  Bucket ranges:
+    Bucket 0: [32.0, 33.0]
+    Bucket 1: [33.0, 34.0]
+    Bucket 2: [34.0, 35.0]
+    Bucket 3: [35.0, 36.0]
+    Bucket 4: [36.0, 37.0]
+    Bucket 5: [37.0, 38.0]
+    Bucket 6: [38.0, 39.0]
+    Bucket 7: [39.0, 40.0]
+    Bucket 8: [40.0, 41.0]
+    Bucket 9: [41.0, 42.0]
+
+Customer 15:
+  Time window: (np.int64(61), np.int64(71))
+  Number of buckets: 10
+  Bucket ranges:
+    Bucket 0: [61.0, 62.0]
+    Bucket 1: [62.0, 63.0]
+    Bucket 2: [63.0, 64.0]
+    Bucket 3: [64.0, 65.0]
+    Bucket 4: [65.0, 66.0]
+    Bucket 5: [66.0, 67.0]
+    Bucket 6: [67.0, 68.0]
+    Bucket 7: [68.0, 69.0]
+    Bucket 8: [69.0, 70.0]
+    Bucket 9: [70.0, 71.0]
+
+Customer 16:
+  Time window: (np.int64(75), np.int64(85))
+  Number of buckets: 10
+  Bucket ranges:
+    Bucket 0: [75.0, 76.0]
+    Bucket 1: [76.0, 77.0]
+    Bucket 2: [77.0, 78.0]
+    Bucket 3: [78.0, 79.0]
+    Bucket 4: [79.0, 80.0]
+    Bucket 5: [80.0, 81.0]
+    Bucket 6: [81.0, 82.0]
+    Bucket 7: [82.0, 83.0]
+    Bucket 8: [83.0, 84.0]
+    Bucket 9: [84.0, 85.0]
+
+Customer 17:
+  Time window: (np.int64(157), np.int64(167))
+  Number of buckets: 10
+  Bucket ranges:
+    Bucket 0: [157.0, 158.0]
+    Bucket 1: [158.0, 159.0]
+    Bucket 2: [159.0, 160.0]
+    Bucket 3: [160.0, 161.0]
+    Bucket 4: [161.0, 162.0]
+    Bucket 5: [162.0, 163.0]
+    Bucket 6: [163.0, 164.0]
+    Bucket 7: [164.0, 165.0]
+    Bucket 8: [165.0, 166.0]
+    Bucket 9: [166.0, 167.0]
+
+Customer 18:
+  Time window: (np.int64(87), np.int64(97))
+  Number of buckets: 10
+  Bucket ranges:
+    Bucket 0: [87.0, 88.0]
+    Bucket 1: [88.0, 89.0]
+    Bucket 2: [89.0, 90.0]
+    Bucket 3: [90.0, 91.0]
+    Bucket 4: [91.0, 92.0]
+    Bucket 5: [92.0, 93.0]
+    Bucket 6: [93.0, 94.0]
+    Bucket 7: [94.0, 95.0]
+    Bucket 8: [95.0, 96.0]
+    Bucket 9: [96.0, 97.0]
+
+Customer 19:
+  Time window: (np.int64(76), np.int64(86))
+  Number of buckets: 10
+  Bucket ranges:
+    Bucket 0: [76.0, 77.0]
+    Bucket 1: [77.0, 78.0]
+    Bucket 2: [78.0, 79.0]
+    Bucket 3: [79.0, 80.0]
+    Bucket 4: [80.0, 81.0]
+    Bucket 5: [81.0, 82.0]
+    Bucket 6: [82.0, 83.0]
+    Bucket 7: [83.0, 84.0]
+    Bucket 8: [84.0, 85.0]
+    Bucket 9: [85.0, 86.0]
+
+Customer 20:
+  Time window: (np.int64(126), np.int64(136))
+  Number of buckets: 10
+  Bucket ranges:
+    Bucket 0: [126.0, 127.0]
+    Bucket 1: [127.0, 128.0]
+    Bucket 2: [128.0, 129.0]
+    Bucket 3: [129.0, 130.0]
+    Bucket 4: [130.0, 131.0]
+    Bucket 5: [131.0, 132.0]
+    Bucket 6: [132.0, 133.0]
+    Bucket 7: [133.0, 134.0]
+    Bucket 8: [134.0, 135.0]
+    Bucket 9: [135.0, 136.0]
+
+Customer 21:
+  Time window: (np.int64(62), np.int64(72))
+  Number of buckets: 10
+  Bucket ranges:
+    Bucket 0: [62.0, 63.0]
+    Bucket 1: [63.0, 64.0]
+    Bucket 2: [64.0, 65.0]
+    Bucket 3: [65.0, 66.0]
+    Bucket 4: [66.0, 67.0]
+    Bucket 5: [67.0, 68.0]
+    Bucket 6: [68.0, 69.0]
+    Bucket 7: [69.0, 70.0]
+    Bucket 8: [70.0, 71.0]
+    Bucket 9: [71.0, 72.0]
+
+Customer 22:
+  Time window: (np.int64(97), np.int64(107))
+  Number of buckets: 10
+  Bucket ranges:
+    Bucket 0: [97.0, 98.0]
+    Bucket 1: [98.0, 99.0]
+    Bucket 2: [99.0, 100.0]
+    Bucket 3: [100.0, 101.0]
+    Bucket 4: [101.0, 102.0]
+    Bucket 5: [102.0, 103.0]
+    Bucket 6: [103.0, 104.0]
+    Bucket 7: [104.0, 105.0]
+    Bucket 8: [105.0, 106.0]
+    Bucket 9: [106.0, 107.0]
+
+Customer 23:
+  Time window: (np.int64(68), np.int64(78))
+  Number of buckets: 10
+  Bucket ranges:
+    Bucket 0: [68.0, 69.0]
+    Bucket 1: [69.0, 70.0]
+    Bucket 2: [70.0, 71.0]
+    Bucket 3: [71.0, 72.0]
+    Bucket 4: [72.0, 73.0]
+    Bucket 5: [73.0, 74.0]
+    Bucket 6: [74.0, 75.0]
+    Bucket 7: [75.0, 76.0]
+    Bucket 8: [76.0, 77.0]
+    Bucket 9: [77.0, 78.0]
+
+Customer 24:
+  Time window: (np.int64(153), np.int64(163))
+  Number of buckets: 10
+  Bucket ranges:
+    Bucket 0: [153.0, 154.0]
+    Bucket 1: [154.0, 155.0]
+    Bucket 2: [155.0, 156.0]
+    Bucket 3: [156.0, 157.0]
+    Bucket 4: [157.0, 158.0]
+    Bucket 5: [158.0, 159.0]
+    Bucket 6: [159.0, 160.0]
+    Bucket 7: [160.0, 161.0]
+    Bucket 8: [161.0, 162.0]
+    Bucket 9: [162.0, 163.0]
+
+Customer 25:
+  Time window: (np.int64(172), np.int64(182))
+  Number of buckets: 10
+  Bucket ranges:
+    Bucket 0: [172.0, 173.0]
+    Bucket 1: [173.0, 174.0]
+    Bucket 2: [174.0, 175.0]
+    Bucket 3: [175.0, 176.0]
+    Bucket 4: [176.0, 177.0]
+    Bucket 5: [177.0, 178.0]
+    Bucket 6: [178.0, 179.0]
+    Bucket 7: [179.0, 180.0]
+    Bucket 8: [180.0, 181.0]
+    Bucket 9: [181.0, 182.0]
+
+Capacity Bucket Analysis:
+
+Customer 1:
+  Demand: 10
+  Number of buckets: 10
+  Bucket ranges:
+    Bucket 0: [10.0, 29.0]
+    Bucket 1: [29.0, 48.0]
+    Bucket 2: [48.0, 67.0]
+    Bucket 3: [67.0, 86.0]
+    Bucket 4: [86.0, 105.0]
+    Bucket 5: [105.0, 124.0]
+    Bucket 6: [124.0, 143.0]
+    Bucket 7: [143.0, 162.0]
+    Bucket 8: [162.0, 181.0]
+    Bucket 9: [181.0, 200.0]
+
+Customer 2:
+  Demand: 7
+  Number of buckets: 10
+  Bucket ranges:
+    Bucket 0: [7.0, 26.3]
+    Bucket 1: [26.3, 45.6]
+    Bucket 2: [45.6, 64.9]
+    Bucket 3: [64.9, 84.2]
+    Bucket 4: [84.2, 103.5]
+    Bucket 5: [103.5, 122.8]
+    Bucket 6: [122.8, 142.1]
+    Bucket 7: [142.1, 161.4]
+    Bucket 8: [161.4, 180.7]
+    Bucket 9: [180.7, 200.0]
+
+Customer 3:
+  Demand: 13
+  Number of buckets: 10
+  Bucket ranges:
+    Bucket 0: [13.0, 31.7]
+    Bucket 1: [31.7, 50.4]
+    Bucket 2: [50.4, 69.1]
+    Bucket 3: [69.1, 87.8]
+    Bucket 4: [87.8, 106.5]
+    Bucket 5: [106.5, 125.2]
+    Bucket 6: [125.2, 143.9]
+    Bucket 7: [143.9, 162.6]
+    Bucket 8: [162.6, 181.3]
+    Bucket 9: [181.3, 200.0]
+
+Customer 4:
+  Demand: 19
+  Number of buckets: 10
+  Bucket ranges:
+    Bucket 0: [19.0, 37.1]
+    Bucket 1: [37.1, 55.2]
+    Bucket 2: [55.2, 73.3]
+    Bucket 3: [73.3, 91.4]
+    Bucket 4: [91.4, 109.5]
+    Bucket 5: [109.5, 127.6]
+    Bucket 6: [127.6, 145.7]
+    Bucket 7: [145.7, 163.8]
+    Bucket 8: [163.8, 181.9]
+    Bucket 9: [181.9, 200.0]
+
+Customer 5:
+  Demand: 26
+  Number of buckets: 10
+  Bucket ranges:
+    Bucket 0: [26.0, 43.4]
+    Bucket 1: [43.4, 60.8]
+    Bucket 2: [60.8, 78.2]
+    Bucket 3: [78.2, 95.6]
+    Bucket 4: [95.6, 113.0]
+    Bucket 5: [113.0, 130.4]
+    Bucket 6: [130.4, 147.8]
+    Bucket 7: [147.8, 165.2]
+    Bucket 8: [165.2, 182.6]
+    Bucket 9: [182.6, 200.0]
+
+Customer 6:
+  Demand: 3
+  Number of buckets: 10
+  Bucket ranges:
+    Bucket 0: [3.0, 22.7]
+    Bucket 1: [22.7, 42.4]
+    Bucket 2: [42.4, 62.1]
+    Bucket 3: [62.1, 81.8]
+    Bucket 4: [81.8, 101.5]
+    Bucket 5: [101.5, 121.2]
+    Bucket 6: [121.2, 140.9]
+    Bucket 7: [140.9, 160.6]
+    Bucket 8: [160.6, 180.3]
+    Bucket 9: [180.3, 200.0]
+
+Customer 7:
+  Demand: 5
+  Number of buckets: 10
+  Bucket ranges:
+    Bucket 0: [5.0, 24.5]
+    Bucket 1: [24.5, 44.0]
+    Bucket 2: [44.0, 63.5]
+    Bucket 3: [63.5, 83.0]
+    Bucket 4: [83.0, 102.5]
+    Bucket 5: [102.5, 122.0]
+    Bucket 6: [122.0, 141.5]
+    Bucket 7: [141.5, 161.0]
+    Bucket 8: [161.0, 180.5]
+    Bucket 9: [180.5, 200.0]
+
+Customer 8:
+  Demand: 9
+  Number of buckets: 10
+  Bucket ranges:
+    Bucket 0: [9.0, 28.1]
+    Bucket 1: [28.1, 47.2]
+    Bucket 2: [47.2, 66.3]
+    Bucket 3: [66.3, 85.4]
+    Bucket 4: [85.4, 104.5]
+    Bucket 5: [104.5, 123.6]
+    Bucket 6: [123.6, 142.7]
+    Bucket 7: [142.7, 161.8]
+    Bucket 8: [161.8, 180.9]
+    Bucket 9: [180.9, 200.0]
+
+Customer 9:
+  Demand: 16
+  Number of buckets: 10
+  Bucket ranges:
+    Bucket 0: [16.0, 34.4]
+    Bucket 1: [34.4, 52.8]
+    Bucket 2: [52.8, 71.2]
+    Bucket 3: [71.2, 89.6]
+    Bucket 4: [89.6, 108.0]
+    Bucket 5: [108.0, 126.4]
+    Bucket 6: [126.4, 144.8]
+    Bucket 7: [144.8, 163.2]
+    Bucket 8: [163.2, 181.6]
+    Bucket 9: [181.6, 200.0]
+
+Customer 10:
+  Demand: 16
+  Number of buckets: 10
+  Bucket ranges:
+    Bucket 0: [16.0, 34.4]
+    Bucket 1: [34.4, 52.8]
+    Bucket 2: [52.8, 71.2]
+    Bucket 3: [71.2, 89.6]
+    Bucket 4: [89.6, 108.0]
+    Bucket 5: [108.0, 126.4]
+    Bucket 6: [126.4, 144.8]
+    Bucket 7: [144.8, 163.2]
+    Bucket 8: [163.2, 181.6]
+    Bucket 9: [181.6, 200.0]
+
+Customer 11:
+  Demand: 12
+  Number of buckets: 10
+  Bucket ranges:
+    Bucket 0: [12.0, 30.8]
+    Bucket 1: [30.8, 49.6]
+    Bucket 2: [49.6, 68.4]
+    Bucket 3: [68.4, 87.2]
+    Bucket 4: [87.2, 106.0]
+    Bucket 5: [106.0, 124.8]
+    Bucket 6: [124.8, 143.6]
+    Bucket 7: [143.6, 162.4]
+    Bucket 8: [162.4, 181.2]
+    Bucket 9: [181.2, 200.0]
+
+Customer 12:
+  Demand: 19
+  Number of buckets: 10
+  Bucket ranges:
+    Bucket 0: [19.0, 37.1]
+    Bucket 1: [37.1, 55.2]
+    Bucket 2: [55.2, 73.3]
+    Bucket 3: [73.3, 91.4]
+    Bucket 4: [91.4, 109.5]
+    Bucket 5: [109.5, 127.6]
+    Bucket 6: [127.6, 145.7]
+    Bucket 7: [145.7, 163.8]
+    Bucket 8: [163.8, 181.9]
+    Bucket 9: [181.9, 200.0]
+
+Customer 13:
+  Demand: 23
+  Number of buckets: 10
+  Bucket ranges:
+    Bucket 0: [23.0, 40.7]
+    Bucket 1: [40.7, 58.4]
+    Bucket 2: [58.4, 76.1]
+    Bucket 3: [76.1, 93.8]
+    Bucket 4: [93.8, 111.5]
+    Bucket 5: [111.5, 129.2]
+    Bucket 6: [129.2, 146.9]
+    Bucket 7: [146.9, 164.6]
+    Bucket 8: [164.6, 182.3]
+    Bucket 9: [182.3, 200.0]
+
+Customer 14:
+  Demand: 20
+  Number of buckets: 10
+  Bucket ranges:
+    Bucket 0: [20.0, 38.0]
+    Bucket 1: [38.0, 56.0]
+    Bucket 2: [56.0, 74.0]
+    Bucket 3: [74.0, 92.0]
+    Bucket 4: [92.0, 110.0]
+    Bucket 5: [110.0, 128.0]
+    Bucket 6: [128.0, 146.0]
+    Bucket 7: [146.0, 164.0]
+    Bucket 8: [164.0, 182.0]
+    Bucket 9: [182.0, 200.0]
+
+Customer 15:
+  Demand: 8
+  Number of buckets: 10
+  Bucket ranges:
+    Bucket 0: [8.0, 27.2]
+    Bucket 1: [27.2, 46.4]
+    Bucket 2: [46.4, 65.6]
+    Bucket 3: [65.6, 84.8]
+    Bucket 4: [84.8, 104.0]
+    Bucket 5: [104.0, 123.2]
+    Bucket 6: [123.2, 142.4]
+    Bucket 7: [142.4, 161.6]
+    Bucket 8: [161.6, 180.8]
+    Bucket 9: [180.8, 200.0]
+
+Customer 16:
+  Demand: 19
+  Number of buckets: 10
+  Bucket ranges:
+    Bucket 0: [19.0, 37.1]
+    Bucket 1: [37.1, 55.2]
+    Bucket 2: [55.2, 73.3]
+    Bucket 3: [73.3, 91.4]
+    Bucket 4: [91.4, 109.5]
+    Bucket 5: [109.5, 127.6]
+    Bucket 6: [127.6, 145.7]
+    Bucket 7: [145.7, 163.8]
+    Bucket 8: [163.8, 181.9]
+    Bucket 9: [181.9, 200.0]
+
+Customer 17:
+  Demand: 2
+  Number of buckets: 10
+  Bucket ranges:
+    Bucket 0: [2.0, 21.8]
+    Bucket 1: [21.8, 41.6]
+    Bucket 2: [41.6, 61.4]
+    Bucket 3: [61.4, 81.2]
+    Bucket 4: [81.2, 101.0]
+    Bucket 5: [101.0, 120.8]
+    Bucket 6: [120.8, 140.6]
+    Bucket 7: [140.6, 160.4]
+    Bucket 8: [160.4, 180.2]
+    Bucket 9: [180.2, 200.0]
+
+Customer 18:
+  Demand: 12
+  Number of buckets: 10
+  Bucket ranges:
+    Bucket 0: [12.0, 30.8]
+    Bucket 1: [30.8, 49.6]
+    Bucket 2: [49.6, 68.4]
+    Bucket 3: [68.4, 87.2]
+    Bucket 4: [87.2, 106.0]
+    Bucket 5: [106.0, 124.8]
+    Bucket 6: [124.8, 143.6]
+    Bucket 7: [143.6, 162.4]
+    Bucket 8: [162.4, 181.2]
+    Bucket 9: [181.2, 200.0]
+
+Customer 19:
+  Demand: 17
+  Number of buckets: 10
+  Bucket ranges:
+    Bucket 0: [17.0, 35.3]
+    Bucket 1: [35.3, 53.6]
+    Bucket 2: [53.6, 71.9]
+    Bucket 3: [71.9, 90.2]
+    Bucket 4: [90.2, 108.5]
+    Bucket 5: [108.5, 126.8]
+    Bucket 6: [126.8, 145.1]
+    Bucket 7: [145.1, 163.4]
+    Bucket 8: [163.4, 181.7]
+    Bucket 9: [181.7, 200.0]
+
+Customer 20:
+  Demand: 9
+  Number of buckets: 10
+  Bucket ranges:
+    Bucket 0: [9.0, 28.1]
+    Bucket 1: [28.1, 47.2]
+    Bucket 2: [47.2, 66.3]
+    Bucket 3: [66.3, 85.4]
+    Bucket 4: [85.4, 104.5]
+    Bucket 5: [104.5, 123.6]
+    Bucket 6: [123.6, 142.7]
+    Bucket 7: [142.7, 161.8]
+    Bucket 8: [161.8, 180.9]
+    Bucket 9: [180.9, 200.0]
+
+Customer 21:
+  Demand: 11
+  Number of buckets: 10
+  Bucket ranges:
+    Bucket 0: [11.0, 29.9]
+    Bucket 1: [29.9, 48.8]
+    Bucket 2: [48.8, 67.7]
+    Bucket 3: [67.7, 86.6]
+    Bucket 4: [86.6, 105.5]
+    Bucket 5: [105.5, 124.4]
+    Bucket 6: [124.4, 143.3]
+    Bucket 7: [143.3, 162.2]
+    Bucket 8: [162.2, 181.1]
+    Bucket 9: [181.1, 200.0]
+
+Customer 22:
+  Demand: 18
+  Number of buckets: 10
+  Bucket ranges:
+    Bucket 0: [18.0, 36.2]
+    Bucket 1: [36.2, 54.4]
+    Bucket 2: [54.4, 72.6]
+    Bucket 3: [72.6, 90.8]
+    Bucket 4: [90.8, 109.0]
+    Bucket 5: [109.0, 127.2]
+    Bucket 6: [127.2, 145.4]
+    Bucket 7: [145.4, 163.6]
+    Bucket 8: [163.6, 181.8]
+    Bucket 9: [181.8, 200.0]
+
+Customer 23:
+  Demand: 29
+  Number of buckets: 10
+  Bucket ranges:
+    Bucket 0: [29.0, 46.1]
+    Bucket 1: [46.1, 63.2]
+    Bucket 2: [63.2, 80.3]
+    Bucket 3: [80.3, 97.4]
+    Bucket 4: [97.4, 114.5]
+    Bucket 5: [114.5, 131.6]
+    Bucket 6: [131.6, 148.7]
+    Bucket 7: [148.7, 165.8]
+    Bucket 8: [165.8, 182.9]
+    Bucket 9: [182.9, 200.0]
+
+Customer 24:
+  Demand: 3
+  Number of buckets: 10
+  Bucket ranges:
+    Bucket 0: [3.0, 22.7]
+    Bucket 1: [22.7, 42.4]
+    Bucket 2: [42.4, 62.1]
+    Bucket 3: [62.1, 81.8]
+    Bucket 4: [81.8, 101.5]
+    Bucket 5: [101.5, 121.2]
+    Bucket 6: [121.2, 140.9]
+    Bucket 7: [140.9, 160.6]
+    Bucket 8: [160.6, 180.3]
+    Bucket 9: [180.3, 200.0]
+
+Customer 25:
+  Demand: 6
+  Number of buckets: 10
+  Bucket ranges:
+    Bucket 0: [6.0, 25.4]
+    Bucket 1: [25.4, 44.8]
+    Bucket 2: [44.8, 64.2]
+    Bucket 3: [64.2, 83.6]
+    Bucket 4: [83.6, 103.0]
+    Bucket 5: [103.0, 122.4]
+    Bucket 6: [122.4, 141.8]
+    Bucket 7: [141.8, 161.2]
+    Bucket 8: [161.2, 180.6]
+    Bucket 9: [180.6, 200.0]
+
+=== Iteration 2 ===
+Gurobi Optimizer version 11.0.0 build v11.0.0rc2 (mac64[rosetta2] - Darwin 24.1.0 24B91)
+
+CPU model: Apple M3
+Thread count: 8 physical cores, 8 logical processors, using up to 4 threads
+
+Optimize a model with 134306 rows, 62838 columns and 412779 nonzeros
+Model fingerprint: 0x60068e4e
+Variable types: 61447 continuous, 1391 integer (1391 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 2e+02]
+  Objective range  [7e+00, 7e+01]
+  Bounds range     [1e+00, 2e+02]
+  RHS range        [1e-02, 4e+02]
+Presolved: 1484 rows, 1695 columns, 8308 nonzeros
+
+Continuing optimization...
+
+
+Cutting planes:
+  Gomory: 1
+  Cover: 5
+  Implied bound: 9
+  MIR: 11
+  Flow cover: 5
+
+Explored 1 nodes (275 simplex iterations) in 0.05 seconds (0.05 work units)
+Thread count was 4 (of 8 available processors)
+
+Solution count 10: 756.8 760.1 772.6 ... 1196.1
+
+Optimal solution found (tolerance 1.00e-02)
+Best objective 7.568000000000e+02, best bound 7.568000000000e+02, gap 0.0000%
+
+Iteration Objective: 756.8000000000001
+No significant improvement
+
+=== Iteration 3 ===
+Gurobi Optimizer version 11.0.0 build v11.0.0rc2 (mac64[rosetta2] - Darwin 24.1.0 24B91)
+
+CPU model: Apple M3
+Thread count: 8 physical cores, 8 logical processors, using up to 4 threads
+
+Optimize a model with 134306 rows, 62838 columns and 412779 nonzeros
+Model fingerprint: 0x60068e4e
+Variable types: 61447 continuous, 1391 integer (1391 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 2e+02]
+  Objective range  [7e+00, 7e+01]
+  Bounds range     [1e+00, 2e+02]
+  RHS range        [1e-02, 4e+02]
+Presolved: 1484 rows, 1695 columns, 8308 nonzeros
+
+Continuing optimization...
+
+
+Cutting planes:
+  Gomory: 1
+  Cover: 5
+  Implied bound: 9
+  MIR: 11
+  Flow cover: 5
+
+Explored 1 nodes (275 simplex iterations) in 0.02 seconds (0.05 work units)
+Thread count was 4 (of 8 available processors)
+
+Solution count 10: 756.8 760.1 772.6 ... 1196.1
+
+Optimal solution found (tolerance 1.00e-02)
+Best objective 7.568000000000e+02, best bound 7.568000000000e+02, gap 0.0000%
+
+Iteration Objective: 756.8000000000001
+No significant improvement
+
+=== Iteration 4 ===
+Gurobi Optimizer version 11.0.0 build v11.0.0rc2 (mac64[rosetta2] - Darwin 24.1.0 24B91)
+
+CPU model: Apple M3
+Thread count: 8 physical cores, 8 logical processors, using up to 4 threads
+
+Optimize a model with 134306 rows, 62838 columns and 412779 nonzeros
+Model fingerprint: 0x60068e4e
+Variable types: 61447 continuous, 1391 integer (1391 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 2e+02]
+  Objective range  [7e+00, 7e+01]
+  Bounds range     [1e+00, 2e+02]
+  RHS range        [1e-02, 4e+02]
+Presolved: 1484 rows, 1695 columns, 8308 nonzeros
+
+Continuing optimization...
+
+
+Cutting planes:
+  Gomory: 1
+  Cover: 5
+  Implied bound: 9
+  MIR: 11
+  Flow cover: 5
+
+Explored 1 nodes (275 simplex iterations) in 0.03 seconds (0.05 work units)
+Thread count was 4 (of 8 available processors)
+
+Solution count 10: 756.8 760.1 772.6 ... 1196.1
+
+Optimal solution found (tolerance 1.00e-02)
+Best objective 7.568000000000e+02, best bound 7.568000000000e+02, gap 0.0000%
+
+Iteration Objective: 756.8000000000001
+No significant improvement
+
+=== Iteration 5 ===
+Gurobi Optimizer version 11.0.0 build v11.0.0rc2 (mac64[rosetta2] - Darwin 24.1.0 24B91)
+
+CPU model: Apple M3
+Thread count: 8 physical cores, 8 logical processors, using up to 4 threads
+
+Optimize a model with 134306 rows, 62838 columns and 412779 nonzeros
+Model fingerprint: 0x60068e4e
+Variable types: 61447 continuous, 1391 integer (1391 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 2e+02]
+  Objective range  [7e+00, 7e+01]
+  Bounds range     [1e+00, 2e+02]
+  RHS range        [1e-02, 4e+02]
+Presolved: 1484 rows, 1695 columns, 8308 nonzeros
+
+Continuing optimization...
+
+
+Cutting planes:
+  Gomory: 1
+  Cover: 5
+  Implied bound: 9
+  MIR: 11
+  Flow cover: 5
+
+Explored 1 nodes (275 simplex iterations) in 0.02 seconds (0.05 work units)
+Thread count was 4 (of 8 available processors)
+
+Solution count 10: 756.8 760.1 772.6 ... 1196.1
+
+Optimal solution found (tolerance 1.00e-02)
+Best objective 7.568000000000e+02, best bound 7.568000000000e+02, gap 0.0000%
+
+Iteration Objective: 756.8000000000001
+No significant improvement
+
+Validating solution:
+
+Route 1: 0 -> 1 -> 26
+  Load: 10/200 ✓
+  Customer 1:
+    Arrive: 3.0
+    Service start: 161.0
+    Window: [161, 171] ✓
+
+Route 2: 0 -> 5 -> 26
+  Load: 26/200 ✓
+  Customer 5:
+    Arrive: 4.1
+    Service start: 34.0
+    Window: [34, 44] ✓
+
+Route 3: 0 -> 11 -> 19 -> 7 -> 8 -> 26
+  Load: 43/200 ✓
+  Customer 11:
+    Arrive: 6.7
+    Service start: 67.0
+    Window: [67, 77] ✓
+  Customer 19:
+    Arrive: 78.4
+    Service start: 78.4
+    Window: [76, 86] ✓
+  Customer 7:
+    Arrive: 90.6
+    Service start: 90.6
+    Window: [81, 91] ✓
+  Customer 8:
+    Arrive: 103.1
+    Service start: 103.1
+    Window: [95, 105] ✓
+
+Route 4: 0 -> 12 -> 26
+  Load: 19/200 ✓
+  Customer 12:
+    Arrive: 3.0
+    Service start: 63.0
+    Window: [63, 73] ✓
+
+Route 5: 0 -> 13 -> 26
+  Load: 23/200 ✓
+  Customer 13:
+    Arrive: 2.2
+    Service start: 159.0
+    Window: [159, 169] ✓
+
+Route 6: 0 -> 14 -> 2 -> 15 -> 16 -> 18 -> 6 -> 10 -> 4 -> 24 -> 25 -> 26
+  Load: 113/200 ✓
+  Customer 14:
+    Arrive: 6.4
+    Service start: 32.0
+    Window: [32, 42] ✓
+  Customer 2:
+    Arrive: 46.2
+    Service start: 50.0
+    Window: [50, 60] ✓
+  Customer 15:
+    Arrive: 62.6
+    Service start: 62.6
+    Window: [61, 71] ✓
+  Customer 16:
+    Arrive: 77.6
+    Service start: 77.6
+    Window: [75, 85] ✓
+  Customer 18:
+    Arrive: 92.1
+    Service start: 92.1
+    Window: [87, 97] ✓
+  Customer 6:
+    Arrive: 104.3
+    Service start: 104.3
+    Window: [99, 109] ✓
+  Customer 10:
+    Arrive: 120.4
+    Service start: 124.0
+    Window: [124, 134] ✓
+  Customer 4:
+    Arrive: 143.4
+    Service start: 149.0
+    Window: [149, 159] ✓
+  Customer 24:
+    Arrive: 162.6
+    Service start: 162.6
+    Window: [153, 163] ✓
+  Customer 25:
+    Arrive: 175.6
+    Service start: 175.6
+    Window: [172, 182] ✓
+
+Route 7: 0 -> 17 -> 26
+  Load: 2/200 ✓
+  Customer 17:
+    Arrive: 6.1
+    Service start: 157.0
+    Window: [157, 167] ✓
+
+Route 8: 0 -> 21 -> 23 -> 9 -> 3 -> 20 -> 26
+  Load: 78/200 ✓
+  Customer 21:
+    Arrive: 3.6
+    Service start: 62.0
+    Window: [62, 72] ✓
+  Customer 23:
+    Arrive: 75.6
+    Service start: 75.6
+    Window: [68, 78] ✓
+  Customer 9:
+    Arrive: 96.6
+    Service start: 97.0
+    Window: [97, 107] ✓
+  Customer 3:
+    Arrive: 110.0
+    Service start: 116.0
+    Window: [116, 126] ✓
+  Customer 20:
+    Arrive: 130.5
+    Service start: 130.5
+    Window: [126, 136] ✓
+
+Route 9: 0 -> 22 -> 26
+  Load: 18/200 ✓
+  Customer 22:
+    Arrive: 5.4
+    Service start: 97.0
+    Window: [97, 107] ✓
