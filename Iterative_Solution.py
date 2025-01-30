@@ -151,6 +151,8 @@ class VRPTWOptimizer:
         self._add_capacity_constraints()
         self._add_time_flow_constraints()
         self._add_capacity_flow_constraints()
+        self._add_flow_linking_constraints()  # Add this line
+
         self.model.update()
     
     def create_initial_model(self):
@@ -296,68 +298,73 @@ class VRPTWOptimizer:
                 name=f'cap_limit_{i}'
             )
 
-    def _add_capacity_flow_constraints(self):
-        """Add capacity flow constraints (equations 4a and 4b from paper)"""
-        # Flow conservation (4a)
-        for i, k, d_min, d_max in self.nodes_D:
-            if i not in [self.depot_start, self.depot_end]:
-                self.model.addConstr(
-                    gp.quicksum(self.z_D[e] for e in self.edges_D if e[0] == (i,k)) ==
-                    gp.quicksum(self.z_D[e] for e in self.edges_D if e[1] == (i,k)),
-                    name=f'cap_flow_cons_{i}_{k}'
-                )
-        
-        # Consistency with route variables (4b)
-        for u,v in self.E_star:
-            self.model.addConstr(
-                self.x[u,v] == gp.quicksum(
-                    self.z_D[e] for e in self.edges_D 
-                    if e[0][0] == u and e[1][0] == v
-                ),
-                name=f'cap_flow_cons_route_{u}_{v}'
-            )
-
     def _add_time_flow_constraints(self):
-        """Add time flow constraints"""
+        """Add time flow constraints (equation 5a/5b from paper)"""
         # Flow conservation (5a)
+        print("\nGenerating Time Flow Constraints (sample):")
+        sample_count = 0
+        
         for i, k, t_min, t_max in self.nodes_T:
             if i not in [self.depot_start, self.depot_end]:
-                self.model.addConstr(
-                    gp.quicksum(self.z_T[e] for e in self.edges_T if e[0] == (i,k)) ==
-                    gp.quicksum(self.z_T[e] for e in self.edges_T if e[1] == (i,k)),
+                # Get incoming and outgoing edges
+                in_edges = [e for e in self.edges_T if e[1] == (i,k)]
+                out_edges = [e for e in self.edges_T if e[0] == (i,k)]
+                
+                # Create and add constraint
+                constr = self.model.addConstr(
+                    gp.quicksum(self.z_T[e] for e in out_edges) ==
+                    gp.quicksum(self.z_T[e] for e in in_edges),
                     name=f'time_flow_cons_{i}_{k}'
                 )
+                
+                # Print first 3 constraints in detail
+                if sample_count < 3:
+                    print(f"\nConstraint for node ({i}, bucket {k}):")
+                    print("Outgoing edges:")
+                    for e in out_edges:
+                        print(f"  z_T[{e}]")
+                    print("Incoming edges:")
+                    for e in in_edges:
+                        print(f"  z_T[{e}]")
+                    print(f"Constraint: {str(constr)}")
+                    sample_count += 1
+
+    def _add_capacity_flow_constraints(self):
+        """Add capacity flow constraints with detailed debugging"""
+        print("\nGenerating Capacity Flow Constraints (sample):")
+        sample_count = 0
         
-        # Consistency with route variables (5b)
-        for u,v in self.E_star:
-            self.model.addConstr(
-                self.x[u,v] == gp.quicksum(
-                    self.z_T[e] for e in self.edges_T 
-                    if e[0][0] == u and e[1][0] == v
-                ),
-                name=f'time_flow_cons_route_{u}_{v}'
-            )
-        
-        # Link time variables τ with time buckets
-        M = max(tw[1] for tw in self.time_windows.values())
-        for i, k, t_min, t_max in self.nodes_T:
+        for i, k, d_min, d_max in self.nodes_D:
             if i not in [self.depot_start, self.depot_end]:
-                outgoing_edges = [e for e in self.edges_T if e[0] == (i,k)]
-                if outgoing_edges:
-                    self.model.addConstr(
-                        self.tau[i] >= t_min - M * (1 - gp.quicksum(self.z_T[e] for e in outgoing_edges)),
-                        name=f'time_bucket_lb_{i}_{k}'
-                    )
-                    self.model.addConstr(
-                        self.tau[i] <= t_max + M * (1 - gp.quicksum(self.z_T[e] for e in outgoing_edges)),
-                        name=f'time_bucket_ub_{i}_{k}'
-                    )
+                # Get incoming and outgoing edges
+                in_edges = [e for e in self.edges_D if e[1] == (i,k)]
+                out_edges = [e for e in self.edges_D if e[0] == (i,k)]
+                
+                # Create and add constraint
+                constr = self.model.addConstr(
+                    gp.quicksum(self.z_D[e] for e in out_edges) ==
+                    gp.quicksum(self.z_D[e] for e in in_edges),
+                    name=f'cap_flow_cons_{i}_{k}'
+                )
+                
+                # Print first 3 constraints in detail
+                if sample_count < 3:
+                    print(f"\nConstraint for node ({i}, bucket {k}):")
+                    print("Outgoing edges:")
+                    for e in out_edges:
+                        print(f"  z_D[{e}]")
+                    print("Incoming edges:")
+                    for e in in_edges:
+                        print(f"  z_D[{e}]")
+                    print(f"Constraint: {str(constr)}")
+                    sample_count += 1
 
     def solve_with_la_discretization(self, time_limit=None):
         """
         Implementation of Algorithm 1 (LA-Discretization) from Section 5.3 of the paper.
         Iteratively solves LP relaxation and adjusts parameterization to achieve sufficiency and parsimony.
         """
+        iteration = 1
         if time_limit:
             self.model.setParam('TimeLimit', time_limit)
             
@@ -373,16 +380,28 @@ class VRPTWOptimizer:
                 iter_since_reset = 0
 
             # Line 8: Solve LP relaxation Ψ*
-            print("\nSolving LP relaxation...")
+            print(f"\n=== Iteration {iteration} ===")
+            print("Solving LP relaxation...")
+            
+            # Print current state before solving
+            print("\nCurrent state:")
+            print(f"- Average neighborhood size: {sum(len(n) for n in self.la_neighbors.values())/len(self.la_neighbors):.1f}")
+            print(f"- Average time buckets per customer: {sum(len(self.T_u[u]) for u in self.customers)/len(self.customers):.1f}")
+            print(f"- Average capacity buckets per customer: {sum(len(self.D_u[u]) for u in self.customers)/len(self.customers):.1f}")
+            
             relaxed_model = self._create_lp_relaxation()
+            start_time = time.time()
             relaxed_model.optimize()
+            solve_time = time.time() - start_time
             
             if relaxed_model.Status != GRB.OPTIMAL:
                 print("Warning: LP relaxation not solved to optimality")
                 break
                 
             current_obj = relaxed_model.objVal
-            print(f"LP objective: {current_obj}")
+            print(f"\nLP Results:")
+            print(f"- Objective: {current_obj:.2f}")
+            print(f"- Solve time: {solve_time:.2f} seconds")
             
             # Get solution variables
             z_T = self._extract_time_flows(relaxed_model)
@@ -416,6 +435,8 @@ class VRPTWOptimizer:
                 print("No more threshold changes needed")
                 break
                 
+            iteration += 1
+                
             iter_since_reset += 1
             self._update_model_after_changes()
         
@@ -429,6 +450,332 @@ class VRPTWOptimizer:
         self.model.optimize()
         
         return self._extract_solution()
+
+    def _create_lp_relaxation(self):
+        """Create LP relaxation of the current model with dual preservation"""
+        print("\nCreating LP relaxation:")
+        
+        relaxed = self.model.copy()
+        binary_vars = 0
+        integer_vars = 0
+        
+        for v in relaxed.getVars():
+            if v.VType == GRB.BINARY:
+                binary_vars += 1
+                v.VType = GRB.CONTINUOUS
+            elif v.VType == GRB.INTEGER:
+                integer_vars += 1
+                v.VType = GRB.CONTINUOUS
+                
+        print(f"Relaxed {binary_vars} binary and {integer_vars} integer variables")
+        
+        # Critical settings for dual preservation
+        relaxed.setParam('Method', 1)        # Use dual simplex
+        relaxed.setParam('Presolve', 0)      # Disable presolve
+        relaxed.setParam('PreDual', 0)       # Preserve dual structure
+        relaxed.setParam('DualReductions', 0) # Prevent dual reductions
+        relaxed.update()
+        
+        # Print diagnostic information
+        flow_cons = sum(1 for c in relaxed.getConstrs() 
+                    if 'flow_cons' in c.ConstrName)
+        print(f"Flow conservation constraints: {flow_cons}")
+        
+        return relaxed
+
+    def _extract_time_flows(self, model):
+        """Extract time flow variables from model solution"""
+        z_T = {}
+        for edge in self.edges_T:
+            var = model.getVarByName(f'z_T_{edge[0]}_{edge[1]}')
+            if var and var.X > 1e-6:  # Only keep significant flows
+                z_T[edge] = var.X
+        return z_T
+
+    def _extract_capacity_flows(self, model):
+        """Extract capacity flow variables from model solution"""
+        z_D = {}
+        for edge in self.edges_D:
+            var = model.getVarByName(f'z_D_{edge[0]}_{edge[1]}')
+            if var and var.X > 1e-6:  # Only keep significant flows
+                z_D[edge] = var.X
+        return z_D
+
+    def _merge_buckets_with_equal_duals(self, dual_vars):
+        """
+        Merge time and capacity buckets when their dual variables are equal.
+        Returns True if any changes were made.
+        """
+        MIN_BUCKETS = 3          # Minimum number of buckets to maintain
+        DUAL_EQUAL_TOL = 1e-4    # Tolerance for considering duals equal
+        
+        changes = False
+        print("\nBucket Merging Analysis:")
+        
+        # Process time buckets
+        for u in self.customers:
+            print(f"\nTime buckets for customer {u}:")
+            print(f"  Initial buckets: {len(self.T_u[u])}")
+            
+            k = 0
+            while k < len(self.T_u[u]) - 1 and len(self.T_u[u]) > MIN_BUCKETS:
+                dual_i = dual_vars.get(f'time_flow_cons_{u}_{k}', 0)
+                dual_j = dual_vars.get(f'time_flow_cons_{u}_{k+1}', 0)
+                
+                print(f"    Comparing buckets {k} and {k+1}:")
+                print(f"      Dual values: {dual_i:.6f} vs {dual_j:.6f}")
+                
+                if abs(dual_i - dual_j) < DUAL_EQUAL_TOL:
+                    # Merge consecutive buckets
+                    lower = self.T_u[u][k][0]
+                    upper = self.T_u[u][k+1][1]
+                    self.T_u[u][k] = (lower, upper)
+                    self.T_u[u].pop(k+1)
+                    changes = True
+                    print("      -> Merged")
+                else:
+                    print("      -> Kept separate")
+                    k += 1
+                    
+        # Process capacity buckets
+        for u in self.customers:
+            k = 0
+            while k < len(self.D_u[u]) - 1:
+                dual_i = dual_vars.get(f'cap_flow_cons_{u}_{k}', 0)
+                dual_j = dual_vars.get(f'cap_flow_cons_{u}_{k+1}', 0)
+                
+                if abs(dual_i - dual_j) < 1e-6:
+                    # Merge consecutive buckets
+                    lower = self.D_u[u][k][0]
+                    upper = self.D_u[u][k+1][1]
+                    self.D_u[u][k] = (lower, upper)
+                    self.D_u[u].pop(k+1)
+                    changes = True
+                    # Don't increment k since we removed k+1
+                else:
+                    k += 1
+                    
+        return changes
+
+    def _contract_la_neighborhoods(self, dual_vars):
+        """
+        Contract LA neighborhoods based on dual values according to equation (9).
+        Returns True if any changes were made.
+        """
+        MIN_NEIGHBORHOOD_SIZE = 3  # Never contract below this size
+        DUAL_THRESHOLD = 1e-4     # Minimum dual value to consider significant
+        
+        changes = False
+        print("\nLA Neighborhood Contraction Analysis:")
+        
+        for u in self.customers:
+            # Calculate k_u according to equation (9)
+            k_u = 0
+            print(f"\nCustomer {u}:")
+            print(f"  Current neighborhood size: {len(self.la_neighbors[u])}")
+            
+            for k in range(1, len(self.la_neighbors[u]) + 1):
+                # Sum dual values for constraints involving k
+                dual_sum = 0
+                # Add duals from equation (8a)
+                for w in self.la_neighbors[u]:
+                    for v in self.la_neighbors[u]:
+                        if v != w:
+                            dual_val = dual_vars.get(f'la_arc_cons_{u}_w_v_{k}', 0)
+                            if abs(dual_val) > DUAL_THRESHOLD:
+                                dual_sum += dual_val
+                
+                # Add duals from equation (8b)
+                for w in self.la_neighbors[u]:
+                    dual_val = dual_vars.get(f'la_arc_final_{u}_w_{k}', 0)
+                    if abs(dual_val) > DUAL_THRESHOLD:
+                        dual_sum += dual_val
+                
+                print(f"    k={k}: dual sum = {dual_sum:.6f}")
+                
+                if dual_sum > DUAL_THRESHOLD:
+                    k_u = k
+            
+            # Contract neighborhood if possible, but not below minimum size
+            new_size = max(k_u, MIN_NEIGHBORHOOD_SIZE)
+            if new_size < len(self.la_neighbors[u]):
+                print(f"  Contracting from {len(self.la_neighbors[u])} to {new_size} neighbors")
+                self.la_neighbors[u] = self.la_neighbors[u][:new_size]
+                changes = True
+            else:
+                print("  No contraction needed")
+                
+        return changes
+
+    def _add_time_flow_thresholds(self, z_T):
+        """
+        Add new time thresholds based on flow solution to enforce bucket feasibility.
+        Returns True if any changes were made.
+        """
+        changes = False
+        
+        for (i, j), flow in z_T.items():
+            if flow < 1e-6:  # Skip negligible flows
+                continue
+                
+            u_i, k_i = i
+            u_j, k_j = j
+            
+            if u_j not in [self.depot_start, self.depot_end]:
+                # Calculate arrival time at j
+                t_plus_i = self.T_u[u_i][k_i][1]  # Latest time at i
+                travel_time = self.costs[u_i, u_j]/5
+                service_time = self.service_times[u_i]
+                arrival_time = t_plus_i + service_time + travel_time
+                
+                # Add threshold if it's meaningful and new
+                if (self.time_windows[u_j][0] < arrival_time < self.time_windows[u_j][1] and
+                    not any(abs(b[1] - arrival_time) < 1e-6 for b in self.T_u[u_j])):
+                    # Insert new threshold maintaining order
+                    for k, (t_min, t_max) in enumerate(self.T_u[u_j]):
+                        if arrival_time < t_max:
+                            self.T_u[u_j].insert(k, (t_min, arrival_time))
+                            self.T_u[u_j][k+1] = (arrival_time, t_max)
+                            changes = True
+                            break
+                            
+        return changes
+
+    def _add_capacity_flow_thresholds(self, z_D):
+        """
+        Add new capacity thresholds based on flow solution to enforce bucket feasibility.
+        Returns True if any changes were made.
+        """
+        changes = False
+        
+        for (i, j), flow in z_D.items():
+            if flow < 1e-6:  # Skip negligible flows
+                continue
+                
+            u_i, k_i = i
+            u_j, k_j = j
+            
+            if u_j not in [self.depot_start, self.depot_end]:
+                # Calculate remaining capacity at j
+                d_plus_i = self.D_u[u_i][k_i][1]  # Max capacity at i
+                d_u_i = self.demands[u_i]
+                remaining_cap = d_plus_i - d_u_i
+                
+                # Add threshold if it's meaningful and new
+                if (self.demands[u_j] < remaining_cap < self.vehicle_capacity and
+                    not any(abs(b[1] - remaining_cap) < 1e-6 for b in self.D_u[u_j])):
+                    # Insert new threshold maintaining order
+                    for k, (d_min, d_max) in enumerate(self.D_u[u_j]):
+                        if remaining_cap < d_max:
+                            self.D_u[u_j].insert(k, (d_min, remaining_cap))
+                            self.D_u[u_j][k+1] = (remaining_cap, d_max)
+                            changes = True
+                            break
+                            
+        return changes
+
+    def _reset_neighborhoods_to_maximum(self):
+        """Reset all LA neighborhoods to their maximum size"""
+        for u in self.customers:
+            # Get all customers sorted by distance
+            distances = [(j, self.costs[u,j]) 
+                        for j in self.customers if j != u]
+            distances.sort(key=lambda x: x[1])
+            
+            # Take up to K closest feasible neighbors
+            self.la_neighbors[u] = []
+            for j, _ in distances:
+                if len(self.la_neighbors[u]) >= self.K:
+                    break
+                if self._is_reachable(u, j):
+                    self.la_neighbors[u].append(j)
+                    
+    def _update_model_after_changes(self):
+        """Update model structure after bucket or neighborhood changes"""
+        # Recreate flow graphs with new buckets
+        self.nodes_T, self.edges_T = self._create_time_graph()
+        self.nodes_D, self.edges_D = self._create_capacity_graph()
+        
+        # Update model variables and constraints
+        self._create_variables()
+        self._add_constraints()
+
+    def _convert_to_milp(self):
+        """Convert LP relaxation back to MILP"""
+        for v in self.model.getVars():
+            if 'x_' in v.VarName:  # Route variables
+                v.VType = GRB.BINARY
+            if 'y_' in v.VarName:  # LA-arc variables 
+                v.VType = GRB.BINARY
+        self.model.update()
+
+    def _add_flow_linking_constraints(self):
+        """Add constraints linking flow variables to routing variables with debugging"""
+        print("\nGenerating Flow Linking Constraints (sample):")
+        sample_count = 0
+        
+        # Capacity flow linking constraints (6k)
+        for u,v in self.E_star:
+            # Get relevant edges
+            edges = [(i,j) for i,j in self.edges_D if i[0] == u and j[0] == v]
+            
+            constr = self.model.addConstr(
+                self.x[u,v] == 
+                gp.quicksum(self.z_D[i,j] for i,j in edges),
+                name=f'cap_link_{u}_{v}'
+            )
+            
+            # Print first 3 constraints in detail
+            if sample_count < 3:
+                print(f"\nCapacity linking for edge ({u},{v}):")
+                print(f"x[{u},{v}] = sum(")
+                for i,j in edges:
+                    print(f"  z_D[{i},{j}]")
+                print(")")
+                print(f"Constraint: {str(constr)}")
+                sample_count += 1
+
+    def _get_dual_variables(self, model):
+        """Extract dual variables with detailed diagnostics."""
+        dual_vars = {}
+        
+        print("\nChecking LP and dual variables:")
+        print(f"Model status: {model.Status}")
+        print(f"Model is LP? {all(v.VType == GRB.CONTINUOUS for v in model.getVars())}")
+        
+        if model.Status == GRB.OPTIMAL:
+            # Print sample of flow variable values
+            print("\nSample flow variable values:")
+            count = 0
+            for v in model.getVars():
+                if v.VarName.startswith('z_T') or v.VarName.startswith('z_D'):
+                    if v.X > 1e-6 and count < 5:  # Print first 5 non-zero flows
+                        print(f"{v.VarName}: {v.X}")
+                        count += 1
+            
+            # Get duals with detailed error checking
+            print("\nAnalyzing flow conservation constraints:")
+            for c in model.getConstrs():
+                if 'flow_cons' in c.ConstrName:
+                    try:
+                        dual_value = c.Pi
+                        if abs(dual_value) > 1e-10:
+                            dual_vars[c.ConstrName] = dual_value
+                            print(f"\nConstraint: {c.ConstrName}")
+                            print(f"Dual value: {dual_value}")
+                            print(f"Constraint type: {c.Sense}")
+                            print(f"Row: {c.getRow()}")
+                            # Print the constraint slack
+                            slack = c.Slack
+                            print(f"Slack: {slack}")
+                    except Exception as e:
+                        print(f"Error getting dual for {c.ConstrName}: {str(e)}")
+            
+            print(f"\nTotal constraints: {len(model.getConstrs())}")
+            print(f"Flow constraints: {sum(1 for c in model.getConstrs() if 'flow_cons' in c.ConstrName)}")
+            print(f"Non-zero duals found: {len(dual_vars)}")
+        
+        return dual_vars
 
     def _print_neighborhood_analysis(self):
         """Print detailed analysis of LA neighborhoods"""
@@ -702,22 +1049,19 @@ class VRPTWOptimizer:
         
         return True
     
-    def get_dual_variables(self):
-        """Get dual variables from the LP relaxation"""
-        # For Gurobi, we need to solve the LP relaxation first
-        relaxed = self.model.copy()
-        for v in relaxed.getVars():
-            if v.vType != GRB.CONTINUOUS:
-                v.vType = GRB.CONTINUOUS
-        
-        relaxed.optimize()
-        
-        # Get dual values using Pi attribute
+    def _get_dual_variables(self, model):
+        """
+        Extract dual variables from solved model.
+        Args:
+            model: A solved Gurobi model (typically the LP relaxation)
+        Returns:
+            Dictionary mapping constraint names to their dual values
+        """
         dual_vars = {}
-        if relaxed.Status == GRB.OPTIMAL:
-            for c in relaxed.getConstrs():
+        if model.Status == GRB.OPTIMAL:
+            for c in model.getConstrs():
                 try:
-                    dual_vars[c.ConstrName] = relaxed.getConstrByName(c.ConstrName).Pi
+                    dual_vars[c.ConstrName] = c.Pi
                 except Exception:
                     # If we can't get the dual for a constraint, skip it
                     continue
@@ -852,205 +1196,6 @@ class VRPTWOptimizer:
                         edges_T.append(((i,k_i), (j,k_j)))
         
         return nodes_T, edges_T
-
-    def _create_lp_relaxation(self):
-        """Create LP relaxation of the current model"""
-        relaxed = self.model.copy()
-        for v in relaxed.getVars():
-            if v.VType != GRB.CONTINUOUS:
-                v.VType = GRB.CONTINUOUS
-        return relaxed
-
-    def _extract_time_flows(self, model):
-        """Extract time flow variables from model solution"""
-        z_T = {}
-        for edge in self.edges_T:
-            var = model.getVarByName(f'z_T_{edge[0]}_{edge[1]}')
-            if var and var.X > 1e-6:  # Only keep significant flows
-                z_T[edge] = var.X
-        return z_T
-
-    def _extract_capacity_flows(self, model):
-        """Extract capacity flow variables from model solution"""
-        z_D = {}
-        for edge in self.edges_D:
-            var = model.getVarByName(f'z_D_{edge[0]}_{edge[1]}')
-            if var and var.X > 1e-6:  # Only keep significant flows
-                z_D[edge] = var.X
-        return z_D
-
-    def _merge_buckets_with_equal_duals(self, dual_vars):
-        """
-        Merge time and capacity buckets when their dual variables are equal.
-        Returns True if any changes were made.
-        """
-        changes = False
-        
-        # Process time buckets
-        for u in self.customers:
-            # Get pairs of consecutive buckets
-            for k in range(len(self.T_u[u]) - 1):
-                dual_i = dual_vars.get(f'time_flow_cons_{u}_{k}', 0)
-                dual_j = dual_vars.get(f'time_flow_cons_{u}_{k+1}', 0)
-                
-                if abs(dual_i - dual_j) < 1e-6:
-                    # Merge consecutive buckets
-                    lower = self.T_u[u][k][0]
-                    upper = self.T_u[u][k+1][1]
-                    self.T_u[u][k] = (lower, upper)
-                    self.T_u[u].pop(k+1)
-                    changes = True
-                    
-        # Process capacity buckets
-        for u in self.customers:
-            for k in range(len(self.D_u[u]) - 1):
-                dual_i = dual_vars.get(f'cap_flow_cons_{u}_{k}', 0)
-                dual_j = dual_vars.get(f'cap_flow_cons_{u}_{k+1}', 0)
-                
-                if abs(dual_i - dual_j) < 1e-6:
-                    # Merge consecutive buckets
-                    lower = self.D_u[u][k][0]
-                    upper = self.D_u[u][k+1][1]
-                    self.D_u[u][k] = (lower, upper)
-                    self.D_u[u].pop(k+1)
-                    changes = True
-                    
-        return changes
-
-    def _contract_la_neighborhoods(self, dual_vars):
-        """
-        Contract LA neighborhoods based on dual values according to equation (9).
-        Returns True if any changes were made.
-        """
-        changes = False
-        
-        for u in self.customers:
-            # Calculate k_u according to equation (9)
-            k_u = 0
-            for k in range(1, len(self.la_neighbors[u]) + 1):
-                # Sum dual values for constraints involving k
-                dual_sum = 0
-                # Add duals from equation (8a)
-                for w in self.la_neighbors[u]:
-                    for v in self.la_neighbors[u]:
-                        if v != w:
-                            dual_sum += dual_vars.get(f'la_arc_cons_{u}_w_v_{k}', 0)
-                
-                # Add duals from equation (8b)
-                dual_sum += sum(dual_vars.get(f'la_arc_final_{u}_w_{k}', 0)
-                            for w in self.la_neighbors[u])
-                
-                if dual_sum > 0:
-                    k_u = k
-            
-            # Contract neighborhood if possible
-            if k_u < len(self.la_neighbors[u]):
-                self.la_neighbors[u] = self.la_neighbors[u][:k_u]
-                changes = True
-                
-        return changes
-
-    def _add_time_flow_thresholds(self, z_T):
-        """
-        Add new time thresholds based on flow solution to enforce bucket feasibility.
-        Returns True if any changes were made.
-        """
-        changes = False
-        
-        for (i, j), flow in z_T.items():
-            if flow < 1e-6:  # Skip negligible flows
-                continue
-                
-            u_i, k_i = i
-            u_j, k_j = j
-            
-            if u_j not in [self.depot_start, self.depot_end]:
-                # Calculate arrival time at j
-                t_plus_i = self.T_u[u_i][k_i][1]  # Latest time at i
-                travel_time = self.costs[u_i, u_j]/5
-                service_time = self.service_times[u_i]
-                arrival_time = t_plus_i + service_time + travel_time
-                
-                # Add threshold if it's meaningful and new
-                if (self.time_windows[u_j][0] < arrival_time < self.time_windows[u_j][1] and
-                    not any(abs(b[1] - arrival_time) < 1e-6 for b in self.T_u[u_j])):
-                    # Insert new threshold maintaining order
-                    for k, (t_min, t_max) in enumerate(self.T_u[u_j]):
-                        if arrival_time < t_max:
-                            self.T_u[u_j].insert(k, (t_min, arrival_time))
-                            self.T_u[u_j][k+1] = (arrival_time, t_max)
-                            changes = True
-                            break
-                            
-        return changes
-
-    def _add_capacity_flow_thresholds(self, z_D):
-        """
-        Add new capacity thresholds based on flow solution to enforce bucket feasibility.
-        Returns True if any changes were made.
-        """
-        changes = False
-        
-        for (i, j), flow in z_D.items():
-            if flow < 1e-6:  # Skip negligible flows
-                continue
-                
-            u_i, k_i = i
-            u_j, k_j = j
-            
-            if u_j not in [self.depot_start, self.depot_end]:
-                # Calculate remaining capacity at j
-                d_plus_i = self.D_u[u_i][k_i][1]  # Max capacity at i
-                d_u_i = self.demands[u_i]
-                remaining_cap = d_plus_i - d_u_i
-                
-                # Add threshold if it's meaningful and new
-                if (self.demands[u_j] < remaining_cap < self.vehicle_capacity and
-                    not any(abs(b[1] - remaining_cap) < 1e-6 for b in self.D_u[u_j])):
-                    # Insert new threshold maintaining order
-                    for k, (d_min, d_max) in enumerate(self.D_u[u_j]):
-                        if remaining_cap < d_max:
-                            self.D_u[u_j].insert(k, (d_min, remaining_cap))
-                            self.D_u[u_j][k+1] = (remaining_cap, d_max)
-                            changes = True
-                            break
-                            
-        return changes
-
-    def _reset_neighborhoods_to_maximum(self):
-        """Reset all LA neighborhoods to their maximum size"""
-        for u in self.customers:
-            # Get all customers sorted by distance
-            distances = [(j, self.costs[u,j]) 
-                        for j in self.customers if j != u]
-            distances.sort(key=lambda x: x[1])
-            
-            # Take up to K closest feasible neighbors
-            self.la_neighbors[u] = []
-            for j, _ in distances:
-                if len(self.la_neighbors[u]) >= self.K:
-                    break
-                if self._is_reachable(u, j):
-                    self.la_neighbors[u].append(j)
-                    
-    def _update_model_after_changes(self):
-        """Update model structure after bucket or neighborhood changes"""
-        # Recreate flow graphs with new buckets
-        self.nodes_T, self.edges_T = self._create_time_graph()
-        self.nodes_D, self.edges_D = self._create_capacity_graph()
-        
-        # Update model variables and constraints
-        self._create_variables()
-        self._add_constraints()
-
-    def _convert_to_milp(self):
-        """Convert LP relaxation back to MILP"""
-        for v in self.model.getVars():
-            if 'x_' in v.VarName:  # Route variables
-                v.VType = GRB.BINARY
-            if 'y_' in v.VarName:  # LA-arc variables 
-                v.VType = GRB.BINARY
-        self.model.update()
 
     def _update_bucket_graphs(self):
         """Update time and capacity graphs after bucket modifications"""
@@ -1210,7 +1355,7 @@ def run_solomon_instance(filename, customer_ids, K=3, time_granularity=3, capaci
     )
     
     print("\nSolving...")
-    solution = optimizer.solve_with_parsimony(time_limit=time_limit)
+    solution = optimizer.solve_with_la_discretization(time_limit=time_limit)
     
     return optimizer, solution
 
@@ -1290,7 +1435,7 @@ def test_phi_functions():
 
 if __name__ == "__main__":
     optimizer, solution = run_solomon_instance(
-        filename="r102.csv",
+        filename="r101.csv",
         # customer_ids=[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25],
         customer_ids=list(range(1,26)),
         K=10,
