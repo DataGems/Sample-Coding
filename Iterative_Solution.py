@@ -299,10 +299,10 @@ class VRPTWOptimizer:
             )
 
     def _add_time_flow_constraints(self):
-        """Add time flow constraints (equation 5a/5b from paper)"""
-        # Flow conservation (5a)
-        print("\nGenerating Time Flow Constraints (sample):")
+        """Add time flow constraints with detailed debugging"""
+        print("\nGenerating Time Flow Conservation Constraints:")
         sample_count = 0
+        flow_constrs = []
         
         for i, k, t_min, t_max in self.nodes_T:
             if i not in [self.depot_start, self.depot_end]:
@@ -311,23 +311,30 @@ class VRPTWOptimizer:
                 out_edges = [e for e in self.edges_T if e[0] == (i,k)]
                 
                 # Create and add constraint
+                constr_name = f'time_flow_cons_{i}_{k}'
                 constr = self.model.addConstr(
                     gp.quicksum(self.z_T[e] for e in out_edges) ==
                     gp.quicksum(self.z_T[e] for e in in_edges),
-                    name=f'time_flow_cons_{i}_{k}'
+                    name=constr_name
                 )
+                flow_constrs.append(constr)
                 
                 # Print first 3 constraints in detail
                 if sample_count < 3:
-                    print(f"\nConstraint for node ({i}, bucket {k}):")
-                    print("Outgoing edges:")
+                    print(f"\nFlow Conservation at node ({i}, bucket {k}):")
+                    print(f"Constraint name: {constr_name}")
+                    print(f"Time window: [{t_min}, {t_max}]")
+                    print("Balance: Outflow = Inflow")
+                    print("Outflow terms:")
                     for e in out_edges:
-                        print(f"  z_T[{e}]")
-                    print("Incoming edges:")
+                        print(f"  z_T{e}")
+                    print("= Inflow terms:")
                     for e in in_edges:
-                        print(f"  z_T[{e}]")
-                    print(f"Constraint: {str(constr)}")
+                        print(f"  z_T{e}")
                     sample_count += 1
+        
+        print(f"\nTotal time flow conservation constraints created: {len(flow_constrs)}")
+        return flow_constrs
 
     def _add_capacity_flow_constraints(self):
         """Add capacity flow constraints with detailed debugging"""
@@ -736,44 +743,54 @@ class VRPTWOptimizer:
                 sample_count += 1
 
     def _get_dual_variables(self, model):
-        """Extract dual variables with detailed diagnostics."""
+        """Extract dual variables with detailed diagnostics"""
+        print("\nAnalyzing LP Solution and Dual Values:")
+        print(f"Model status: {model.status}")
+        self.model.update()
+        
+        # First check some flow variables
+        print("\nSample of non-zero flow variables:")
+        count = 0
+        for v in model.getVars():
+            if v.VarName.startswith('z_') and abs(v.X) > 1e-6:
+                print(f"{v.VarName} = {v.X}")
+                count += 1
+                if count >= 5:
+                    break
+        
+        # Now look at flow conservation constraints and their duals
         dual_vars = {}
+        total_flow_cons = 0
+        nonzero_duals = 0
         
-        print("\nChecking LP and dual variables:")
-        print(f"Model status: {model.Status}")
-        print(f"Model is LP? {all(v.VType == GRB.CONTINUOUS for v in model.getVars())}")
-        
-        if model.Status == GRB.OPTIMAL:
-            # Print sample of flow variable values
-            print("\nSample flow variable values:")
-            count = 0
-            for v in model.getVars():
-                if v.VarName.startswith('z_T') or v.VarName.startswith('z_D'):
-                    if v.X > 1e-6 and count < 5:  # Print first 5 non-zero flows
-                        print(f"{v.VarName}: {v.X}")
-                        count += 1
-            
-            # Get duals with detailed error checking
-            print("\nAnalyzing flow conservation constraints:")
-            for c in model.getConstrs():
-                if 'flow_cons' in c.ConstrName:
-                    try:
-                        dual_value = c.Pi
-                        if abs(dual_value) > 1e-10:
-                            dual_vars[c.ConstrName] = dual_value
-                            print(f"\nConstraint: {c.ConstrName}")
-                            print(f"Dual value: {dual_value}")
-                            print(f"Constraint type: {c.Sense}")
-                            print(f"Row: {c.getRow()}")
-                            # Print the constraint slack
-                            slack = c.Slack
-                            print(f"Slack: {slack}")
-                    except Exception as e:
-                        print(f"Error getting dual for {c.ConstrName}: {str(e)}")
-            
-            print(f"\nTotal constraints: {len(model.getConstrs())}")
-            print(f"Flow constraints: {sum(1 for c in model.getConstrs() if 'flow_cons' in c.ConstrName)}")
-            print(f"Non-zero duals found: {len(dual_vars)}")
+        print("\nAnalyzing flow conservation constraints:")
+        for c in model.getConstrs():
+            if 'flow_cons' in c.ConstrName:
+                total_flow_cons += 1
+                try:
+                    dual_val = c.Pi
+                    if abs(dual_val) > 1e-6:
+                        nonzero_duals += 1
+                        dual_vars[c.ConstrName] = dual_val
+                        print(f"\nConstraint: {c.ConstrName}")
+                        print(f"Dual value: {dual_val}")
+                        print(f"Slack: {c.Slack}")
+                        print(f"Right hand side: {c.RHS}")
+                        # Print the constraint row
+                        print("Constraint row:")
+                        row = c.getRow()
+                        for i in range(row.size()):
+                            coeff = row.getCoeff(i)
+                            var = row.getVar(i)
+                            if abs(coeff) > 1e-6:
+                                print(f"  {coeff} * {var.VarName}")
+                    
+                except Exception as e:
+                    print(f"Error getting dual for {c.ConstrName}: {str(e)}")
+                    
+        print(f"\nSummary:")
+        print(f"Total flow conservation constraints: {total_flow_cons}")
+        print(f"Constraints with non-zero duals: {nonzero_duals}")
         
         return dual_vars
 

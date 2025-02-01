@@ -1,0 +1,1 @@
+I talked with the lead author of the paper, who told me that there's a typo in equation 8b: the not-an-element-of symbol under the first summation sign should in fact be an-element-of, so the expression should start with $v \in N^+$, and go on from there. 
